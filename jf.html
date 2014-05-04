@@ -75,8 +75,121 @@
       </div>   
 <!-- Lead --> 
 
+<div class="container">
+	<h2>V-3 Deployment</h2>
+</div>
+
 <!-- Overview -->
-      <div class="container">
+      <div class="container alert alert-info">
+        <table class="table">                      
+          <thead>                          
+            <tr>                              
+              <th>System</th>
+              <th>&nbsp;</th>                              
+              <th>System</th>
+              <th class="text-right">Max Cargo</th>                              
+              <th class="text-right">Max Collateral</th>
+              <th class="text-right">Expire</th>   
+            </tr>                      
+          </thead>                      
+
+          <tbody>
+
+            <tr>
+              <td>
+              	<span class="eve-system-05" onmouseover="popSys($(this), 30002986, 'Mendori', '0.5', 'eve-system-05', 60006511, 'Mendori IX-9');">Mendori IX-9</span>, <span class="eve-system-03" onmouseover="popSys($(this), 30000015, 'Sendaya', '0.3', 'eve-system-03', 60012301, 'Sendaya V');">Sendaya V</span>
+              </td>
+              <td><span style="color:black;">&#8596;</span></td>
+              <td>
+								<span class="eve-system-00" onmouseover="popSys($(this), 30001162, 'V-3YG7', '0.0', 'eve-system-00', 61000318, 'E-YJ8G VIII');">V-3YG7 VI</span>
+              </td>
+              <td class="text-right">320<span id="fsep"></span>000 m&sup3;</td>
+              <td class="text-right">1<span id="fsep"></span>000M ISK</td>
+              <td class="text-right">7 days</td>
+            </tr>                          
+
+          </tbody>                  
+        </table>  
+      </div>      
+<!-- Overview -->
+
+<!-- Calculate -->
+      <div class="container alert alert-info">
+        <div class="row">
+
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title"><strong>Contract</strong></h3>
+              </div>
+              <div class="panel-body">
+                <p>
+                  <label>Cargo size <span class="text-muted">(m&sup3;)</span> <span class="text-danger small" id="calcd-input-cargo-error"></span></label>
+                  <div class="input-group" id="calcd-input-cargo-form">                         
+                    <input type="text" class="form-control text-right" placeholder="Cargo size" id="calcd-input-cargo-value">          
+                    <span class="input-group-addon"><span id="fdec"></span>00</span>
+                  </div>
+                </p>
+                <p>
+                  <label>Collateral <span class="text-muted">(ISK)</span> <span class="text-danger small" id="calcd-input-collateral-error"></span></label>
+                  <div class="input-group" id="calcd-input-collateral-form">
+                    <input type="text" class="form-control text-right" placeholder="Collateral" id="calcd-input-collateral-value">
+                    <span class="input-group-addon"><span id="fdec"></span>00</span>
+                  </div>
+                </p>
+              </div>
+            </div>
+          </div>
+   
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title"><strong>Invoice</strong></h3>
+              </div>
+              <div class="panel-body">
+                <p>Setup fee <span class="pull-right">1<span id="fsep"></span>000<span id="fsep"></span>000 ISK</span></p>
+                <p id="calcd-output-cargo-row">Cargo fee <span class="pull-right" id="calcd-output-cargo-value"></span></p>
+                <p id="calcd-output-collateral-row">Collateral fee <span class="pull-right" id="calcd-output-collateral-value"></span></p>
+                <hr>
+                <p>
+                  <label>Reward</label>
+                  <label data-html="true" data-original-title="<b>Reward calculation</b>" class="popover-reward text-muted" data-toggle="popover" data-content="
+                    <small>
+                    <p>
+                      In addition to the setup fee <em>either</em> the cargo <em>or</em> collateral fee (whichever is <em>higher</em>) is added.
+                    </p>                    
+                    <p>
+                      <b><u>Costs</u></b><br> 
+                      <b>Cargo:</b> 3M ISK per 20k m&sup3;<br>
+                      <b>Collateral:</b> 3M ISK per 62.5M ISK<br>
+                    </p>                  
+                    <p>
+                      <b><u>Pseudo code</u></b><br>
+                      $setup + max(<br>
+                      &nbsp;&nbsp; max(1, ceil($cargo / 20k) * 3M),<br>
+                      &nbsp;&nbsp; max(1, ceil($collateral / 62.5M) * 3M)<br>
+                      )
+                    </p>                  
+                    </small>">[?]</label>
+
+                  <a href="#" class="pull-right" onclick="$('#clipboard').modal('show');$('#clipboard-content').val(updateCalcD()).select();">
+                    <strong id="calcd-output-reward-value"></strong>
+                  </a>
+                </p>         
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+<!-- Calculate -->
+
+<div class="container">
+	<h2>Regular routes</h2>
+</div>
+
+<!-- Overview -->
+      <div class="container alert alert-warning">
         <table class="table">                      
           <thead>                          
             <tr>                              
@@ -146,7 +259,7 @@
 <!-- Overview -->
 
 <!-- Calculate -->
-      <div class="container">
+      <div class="container alert alert-warning">
         <div class="row">
 
           <div class="col-md-6">
@@ -279,7 +392,7 @@
           
       <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>      
       <script src="dist/js/bootstrap.min.js"></script>
-      <script src="jquery-cookie-master/jquery.cookie.js"></script>
+      <script src="dist/js/jquery.cookie.js"></script>
       <script src="eve.js"></script>
 
   </body>
