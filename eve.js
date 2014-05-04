@@ -244,8 +244,8 @@ function updateCalc() {
     return 0;
   }
 
-  var cargoFee = Math.max(1, Math.ceil(inCargo / 20000)) * 2000000;
-  var collateralFee = Math.max(1, Math.ceil(inCollateral / 62500000)) * 2000000;
+  var cargoFee = Math.max(1, Math.ceil(inCargo / 20000)) * 1500000;
+  var collateralFee = Math.max(1, Math.ceil(inCollateral / 62500000)) * 1500000;
   var reward = 1000000 + Math.max(cargoFee, collateralFee);
   
   if (cargoFee > collateralFee) {
