@@ -60,7 +60,7 @@
           <small>Please reload this page once after granting trust</small>
         </p>
         <br>
-        <button type="button" class="btn btn-danger" onclick="CCPEVE.requestTrust('http://freight.bravecollective.net/*');">Trust this site</button>        
+        <button type="button" class="btn btn-danger" onclick="CCPEVE.requestTrust('http://freight.braveineve.com/*');">Trust this site</button>        
       </div>
 <!-- Alerts -->
 
@@ -71,6 +71,111 @@
 	<p class="text-danger">Do not contract <strong>unpackaged</strong> containers or ships</p>        
       </div>   
 <!-- Lead -->                
+
+<!-- EVAC Freight -->
+      <div class="container">
+				<div class="alert alert-danger">
+				<h1 class="text-center">Barleguet EVAC</h1>
+        <table class="table table-striped">                      
+          <thead>                          
+            <tr>                              
+              <th>System</th>
+              <th>&nbsp;</th>                              
+              <th>System</th>
+              <th>Type</th>                              
+              <th class="text-right">Max Cargo</th>                              
+              <th class="text-right">Max Collateral</th>
+              <th class="text-right">Expire</th>   
+              <th class="text-right">Reward</th>                                       
+            </tr>                      
+          </thead>                      
+          <tbody>                          
+            <tr>
+              <td><div class="eve-system-06" onmouseover="popSys($(this), 30003794, 'Stacmon', '0.6', 'eve-system-06', 60011701, 'Stacmon X-1');">Stacmon X-1</div></td>                                          
+              <td><span style="color:black;">&#8596;</span></td>
+              <td><div class="eve-system-05" onmouseover="popSys($(this), 30002986, 'Mendori', '0.5', 'eve-system-05', 60006511, 'Mendori IX-9');">Mendori IX-9</div></td>
+              <td>Full Freighter<br>Half Freighter<br>T1 Hauler</td>
+              <td class="text-right">860<span id="fsep"></span>000 m&sup3;<br>430<span id="fsep"></span>000 m&sup3;<br>30<span id="fsep"></span>000 m&sup3;</td>
+              <td class="text-right">1<span id="fsep"></span>000M ISK<br>500M ISK<br>80M ISK</td>
+              <td class="text-right">7 days<br>7 days<br>7 days</td>
+              <td class="text-right">
+                <a href="#" onclick="$('#clipboard').modal('show');$('#clipboard-content').val('18000000').select();">18M ISK</a><br>
+                <a href="#" onclick="$('#clipboard').modal('show');$('#clipboard-content').val('9000000').select();">9M ISK</a><br>
+                <a href="#" onclick="$('#clipboard').modal('show');$('#clipboard-content').val('4500000').select();">4<span id="fsep"></span>5M ISK</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+						<span class="eve-system-01" onmouseover="popSys($(this), 30003819, 'Barleguet', '0.1', 'eve-system-01', 60014722, 'Barleguet VII-6');">Barleguet VII-6</span>
+              </td>                                            
+              <td><span style="color:black;">&#8596;</span></td>
+              <td><span class="eve-system-06" onmouseover="popSys($(this), 30003794, 'Stacmon', '0.6', 'eve-system-06', 60011701, 'Stacmon X-1');">Stacmon X-1</span></td>
+              <td>Blockade Runner</td>
+              <td class="text-right">9<span id="fsep"></span>000 m&sup3;</td>
+              <td class="text-right">1<span id="fsep"></span>000M ISK</td>
+              <td class="text-right">7 days</td>
+              <td class="text-right"><a href="#" onclick="$('#clipboard').modal('show');$('#clipboard-content').val('2000000').select();">2M ISK</a></td>                
+            </tr> 
+            <tr>
+              <td>
+						<span class="eve-system-01" onmouseover="popSys($(this), 30003819, 'Barleguet', '0.1', 'eve-system-01', 60014722, 'Barleguet VII-6');">Barleguet VII-6</span>
+              </td>                                            
+              <td><span style="color:black;">&#8596;</span></td>
+              <td><span class="eve-system-09" onmouseover="popSys($(this), 30000142, 'Jita', '0.9', 'eve-system-09', 60003466, 'Jita IV-4');">Jita IV-4</span>, <span class="eve-system-09" onmouseover="popSys($(this), 30002659, 'Dodixie', '0.9', 'eve-system-09', 60011866, 'Dodixie IX-20');">Dodixie IX-20</span></td>
+              <td>Blockade Runner</td>
+              <td class="text-right">9<span id="fsep"></span>000 m&sup3;</td>
+              <td class="text-right">1<span id="fsep"></span>000M ISK</td>
+              <td class="text-right">7 days</td>
+              <td class="text-right"><a href="#" onclick="$('#clipboard').modal('show');$('#clipboard-content').val('5000000').select();">5M ISK</a></td>                
+            </tr>            
+            <tr>
+              <td>
+								<span class="eve-system-01" onmouseover="popSys($(this), 30003819, 'Barleguet', '0.1', 'eve-system-01', 60014722, 'Barleguet VII-6');">Barleguet VII-6</span>, <span class="eve-system-06" onmouseover="popSys($(this), 30003794, 'Stacmon', '0.6', 'eve-system-06', 60011701, 'Stacmon X-1');">Stacmon X-1</span>
+              </td>                                            
+              <td><span style="color:black;">&#8596;</span></td>
+              <td><span class="eve-system-03" onmouseover="popSys($(this), 30000015, 'Sendaya', '0.3', 'eve-system-03', 60012301, 'Sendaya V');">Sendaya V</span>, <span class="eve-system-02" onmouseover="popSys($(this), 30000017, 'Futzchag', '0.2', 'eve-system-02', 60014074, 'Futzchag II');">Futzchag II</span></td>
+              <td>Blockade Runner</td>
+              <td class="text-right">9<span id="fsep"></span>000 m&sup3;</td>
+              <td class="text-right">1<span id="fsep"></span>000M ISK</td>
+              <td class="text-right">7 days</td>
+              <td class="text-right"><a href="#" onclick="$('#clipboard').modal('show');$('#clipboard-content').val('10000000').select();">10M ISK</a></td>                
+            </tr>            
+
+            <tr>
+              <td>
+						<span class="eve-system-01" onmouseover="popSys($(this), 30003819, 'Barleguet', '0.1', 'eve-system-01', 60014722, 'Barleguet VII-6');">Barleguet VII-6</span>
+              </td>
+              <td><span style="color:black;">&#8596;</span></td>
+              <td>
+						<span class="eve-system-06" onmouseover="popSys($(this), 30003794, 'Stacmon', '0.6', 'eve-system-06', 60011701, 'Stacmon X-1');">Stacmon X-1</span>
+              </td>
+              <td>Jump Freighter</td>
+              <td class="text-right">320<span id="fsep"></span>000 m&sup3;</td>
+              <td class="text-right">1<span id="fsep"></span>000M ISK</td>
+              <td class="text-right">7 days</td>
+              <td class="text-right"><a href="jf.html">Calculate</a></td>                
+            </tr>                          
+            <tr>
+              <td>
+						<span class="eve-system-00" onmouseover="popSys($(this), 30003342, 'Y-W6GF', '0.0', 'eve-system-00', 60013453, 'Y-W6GF VIII-17');">Y-W6GF VIII-17</span>
+              </td>
+              <td><span style="color:black;">&#8596;</span></td>
+              <td>
+						<span class="eve-system-06" onmouseover="popSys($(this), 30003794, 'Stacmon', '0.6', 'eve-system-06', 60011701, 'Stacmon X-1');">Stacmon X-1</span>
+              </td>
+              <td>Jump Freighter</td>
+              <td class="text-right">320<span id="fsep"></span>000 m&sup3;</td>
+              <td class="text-right">1<span id="fsep"></span>000M ISK</td>
+              <td class="text-right">7 days</td>
+              <td class="text-right"><a href="jf.html">Calculate</a></td>                
+            </tr>                          
+          </tbody>                  
+        </table>
+				</div>  
+      </div>      
+<!-- EVAC Freight -->
+
+<p></p>
 
 <!-- Overview Freight -->
       <div class="container">
@@ -123,21 +228,6 @@
             </tr>
 
             <tr>
-              <td><div class="eve-system-06" onmouseover="popSys($(this), 30003794, 'Stacmon', '0.6', 'eve-system-06', 60011701, 'Stacmon X-1');">Stacmon X-1</div></td>                                          
-              <td><span style="color:black;">&#8596;</span></td>
-              <td><div class="eve-system-05" onmouseover="popSys($(this), 30002986, 'Mendori', '0.5', 'eve-system-05', 60006511, 'Mendori IX-9');">Mendori IX-9</div></td>
-              <td>Full Freighter<br>Half Freighter<br>T1 Hauler</td>
-              <td class="text-right">860<span id="fsep"></span>000 m&sup3;<br>430<span id="fsep"></span>000 m&sup3;<br>30<span id="fsep"></span>000 m&sup3;</td>
-              <td class="text-right">1<span id="fsep"></span>000M ISK<br>500M ISK<br>80M ISK</td>
-              <td class="text-right">7 days<br>7 days<br>7 days</td>
-              <td class="text-right">
-                <a href="#" onclick="$('#clipboard').modal('show');$('#clipboard-content').val('18000000').select();">18M ISK</a><br>
-                <a href="#" onclick="$('#clipboard').modal('show');$('#clipboard-content').val('9000000').select();">9M ISK</a><br>
-                <a href="#" onclick="$('#clipboard').modal('show');$('#clipboard-content').val('4500000').select();">4<span id="fsep"></span>5M ISK</a>
-              </td>
-            </tr>
-
-            <tr>
               <td>
               	<span class="eve-system-10" onmouseover="popSys($(this), 30002187, 'Amarr VIII', '1.0', 'eve-system-10', 60008494, 'Amarr VIII');">Amarr VIII</span>,
                 <span class="eve-system-09" onmouseover="popSys($(this), 30002510, 'Rens', '0.9', 'eve-system-09', 60004588, 'Rens VI-8');">Rens VI-8</span>
@@ -166,9 +256,7 @@
 
             <tr>
               <td>
-						<span class="eve-system-09" onmouseover="popSys($(this), 30000142, 'Jita', '0.9', 'eve-system-09', 60003466, 'Jita IV-4');">Jita IV-4</span>,
-						<span class="eve-system-06" onmouseover="popSys($(this), 30003794, 'Stacmon', '0.6', 'eve-system-06', 60011701, 'Stacmon X-1');">Stacmon X-1</span>,
-						<span class="eve-system-01" onmouseover="popSys($(this), 30003819, 'Barleguet', '0.1', 'eve-system-01', 60014722, 'Barleguet VII-6');">Barleguet VII-6</span>
+						<span class="eve-system-09" onmouseover="popSys($(this), 30000142, 'Jita', '0.9', 'eve-system-09', 60003466, 'Jita IV-4');">Jita IV-4</span>
               </td>                                            
               <td><span style="color:black;">&#8596;</span></td>
               <td><span class="eve-system-03" onmouseover="popSys($(this), 30000015, 'Sendaya', '0.3', 'eve-system-03', 60012301, 'Sendaya V');">Sendaya V</span>, <span class="eve-system-02" onmouseover="popSys($(this), 30000017, 'Futzchag', '0.2', 'eve-system-02', 60014074, 'Futzchag II');">Futzchag II</span></td>
@@ -185,7 +273,7 @@
               </td>
               <td><span style="color:black;">&#8596;</span></td>
               <td>
-								<span class="eve-system-03" onmouseover="popSys($(this), 30000015, 'Sendaya', '0.3', 'eve-system-03', 60012301, 'Sendaya V');">Sendaya V</span>, <span class="eve-system-02" onmouseover="popSys($(this), 30000017, 'Futzchag', '0.2', 'eve-system-02', 60014074, 'Futzchag II');">Futzchag II</span>, <span class="eve-system-00" onmouseover="popSys($(this), 30001229, 'E-YJ8G', '0.0', 'eve-system-00', 61000718, 'E-YJ8G VIII');">E-YJ8G VIII</span>
+								<span class="eve-system-03" onmouseover="popSys($(this), 30000015, 'Sendaya', '0.3', 'eve-system-03', 60012301, 'Sendaya V');">Sendaya V</span>, <span class="eve-system-02" onmouseover="popSys($(this), 30000017, 'Futzchag', '0.2', 'eve-system-02', 60014074, 'Futzchag II');">Futzchag II</span>
               </td>
               <td>Jump Freighter</td>
               <td class="text-right">320<span id="fsep"></span>000 m&sup3;</td>
@@ -195,7 +283,7 @@
             </tr>                          
             <tr>
               <td>
-              	<span class="eve-system-03" onmouseover="popSys($(this), 30000015, 'Sendaya', '0.3', 'eve-system-03', 60012301, 'Sendaya V');">Sendaya V</span>
+              	<span class="eve-system-05" onmouseover="popSys($(this), 30002986, 'Mendori', '0.5', 'eve-system-05', 60006511, 'Mendori IX-9');">Mendori IX-9</span>, <span class="eve-system-03" onmouseover="popSys($(this), 30000015, 'Sendaya', '0.3', 'eve-system-03', 60012301, 'Sendaya V');">Sendaya V</span>
               </td>
               <td><span style="color:black;">&#8596;</span></td>
               <td>
@@ -206,20 +294,7 @@
               <td class="text-right">1<span id="fsep"></span>000M ISK</td>
               <td class="text-right">7 days</td>
               <td class="text-right"><a href="jf.html">Calculate</a></td>                
-            </tr>            <tr>
-              <td>
-						<span class="eve-system-01" onmouseover="popSys($(this), 30003819, 'Barleguet', '0.1', 'eve-system-01', 60014722, 'Barleguet VII-6');">Barleguet VII-6</span>
-              </td>
-              <td><span style="color:black;">&#8596;</span></td>
-              <td>
-						<span class="eve-system-06" onmouseover="popSys($(this), 30003794, 'Stacmon', '0.6', 'eve-system-06', 60011701, 'Stacmon X-1');">Stacmon X-1</span>
-              </td>
-              <td>Jump Freighter</td>
-              <td class="text-right">320<span id="fsep"></span>000 m&sup3;</td>
-              <td class="text-right">1<span id="fsep"></span>000M ISK</td>
-              <td class="text-right">7 days</td>
-              <td class="text-right"><a href="jf.html">Calculate</a></td>                
-            </tr>                          
+            </tr>
 
           </tbody>                  
         </table>  
