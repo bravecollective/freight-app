@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">     
+
+  <head>         
+    <meta charset="utf-8">         
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">         
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">         
+    <meta name="description" content="BRAVE Freight">         
+    <meta name="author" content="kiu Nakamura">         
+    <link rel="shortcut icon" href="favicon.png">         
+    <title>BRAVE Freight</title>         
+    <link href="dist/css/bootstrap.css" rel="stylesheet">         
+    <link href="starter-template.css" rel="stylesheet">         
+    <link href="eve.css" rel="stylesheet">
+  </head>     
+
+  <body>
+ 
+<!-- Navigation -->
+     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><img src='img/brave.png'></a>
+        </div>
+        <div class="collapse navbar-collapse pull-right">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Overview</a></li>
+            <li><a href="jf.html">Jump Freighter</a></li>
+            <li class="active"><a href="faq.html">FAQ</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src='img/settings.png'><b class="caret"></b></a>
+              <ul class="dropdown-menu pull-right">
+                <li class="dropdown-header">Helper functions</li>
+                <li><a href="#" onclick="toggleNumberformat();">Toggle Numberformat</a></li>
+                <li><a href="#" onclick="clearCookies();location.reload();">Clear all cookies</a></li>                
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+<!-- Navigation -->
+  
+<!-- Alerts -->
+      <div class="alert alert-info hide fade" id="alert-use-igb">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true" onclick="$.cookie('bf-alert-igb', '1', {expires: 3650});">&times;</button>
+        Tip: Using the <strong>in-game browser</strong> enables additional convenience features
+      </div>
+
+      <div class="alert alert-info hide fade" id="alert-not-trusted">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true" onclick="$.cookie('bf-alert-not-trusted', '1', {expires: 3650})">&times;</button>        
+        <p>
+          Tip: <strong>Trusting this site</strong> enables additional convenience features<br>        
+          <small>Please reload this page once after granting trust</small>
+        </p>
+        <br>
+        <button type="button" class="btn btn-danger" onclick="CCPEVE.requestTrust('http://freight.bravecollective.net/*');">Trust this site</button>        
+      </div>
+<!-- Alerts -->
+
+<!-- Lead -->
+      <div class="starter-template">
+        <h1>Frequently Asked Questions</h1>
+        Freighting is soo confusing!
+      </div>   
+<!-- Lead -->
+
+<!-- Content -->
+      <div class="container">
+        <div class="row">
+  
+          <div class="col-xs-6 col-md-4">  <!-- column -->
+      
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title"><strong>General</strong></h3>
+              </div>
+              <div class="panel-body">
+                <p>Freighting 101</p>
+                
+                <p><h4><strong>Help! I am completly lost!</strong></h4></p>
+                <p>
+                  Join the <em>Brave Dojo</em> channel and ask for help.
+                </p>
+  
+                <p><h4><strong>How do I setup a contract?</strong></h4></p>
+                <p>
+                  Go to <em>Neocom / Business / Contracts</em> and click on <span onLoad=""></span><br>
+                  <em>Create Contract</em>:<br> 
+                  <ul>
+                    <li>Contract Type: Courier</li>
+                    <li>Availability: My Alliance</li>
+                    <li class="text-muted">Click <em>next</em></li>
+                    <li>Select station and items</li>
+                    <li class="text-muted">Click <em>next</em></li>
+                    <li>Ship To: See stations listed in <a href="index.html">overview</a></li>
+                    <li>Reward: <a href="index.html">Fixed rate</a> or <a href="jf.html">calculated</a></li>
+                    <li>Collateral: See below</li>
+                    <li>Expiration: See <a href="index.html">overview</a></li>
+                    <li>Days to complete: 1</li>
+                    <li class="text-muted">Click <em>next</em></li>
+                    <li>Double check contract details</li>
+                    <li class="text-muted">Click <em>finish</em></li>
+                  </ul>
+                </p>
+
+                <p><h4><strong>What can possibly go wrong?</strong></h4></p>
+                <p>
+                  If the collateral is lower than the actual market value of the cargo,
+                  the courier pilot could deliberatly fail your contract and make a profit.<br>
+                  <span class="text-danger"><strong>Contracts without or lower than market value collaterals are extremely risky!</strong></span>                  
+                </p>
+
+                <p><h4><strong>Just set the collateral to maximum?</strong></h4></p>
+                <p>
+                  Please don't.<br>
+                  Freighter pilots try to fill up their cargo space as much as possible while keeping their overall collateral low in order to reduce
+                  the likelyhood of being ganked.<br>
+                  If you max out the collateral on cheap cargo, the pilot wouldn't be able to accept additional contracts for his tour.       
+                </p>
+
+                <p><h4><strong>How do I estimate the collateral?</strong></h4></p>
+                <p>
+                  The rule of thumb is to put a 20% markup on top of the actual market value.<br>
+                  You can mark all items in you hangar and use the game internal ISK estimate,
+                  but the ultimate tool is  <a href="http://evepraisal.com/">Evepraisal</a>.
+                  Select items, copy (CTRL+C) and paste the content into the website.
+                </p>
+
+                <p><h4><strong>Anything else I should know?</strong></h4></p>
+                <p>
+                  <span class="text-danger"><strong>Do not contract unpackaged containers or ships</strong></span>, they mess up sub-contracting and make things complicated.<br>                  
+                  Do not contract <a href="https://wiki.eveonline.com/en/wiki/Contraband">illegal goods</a> (e.g. drugs), they can get the freighter pilot in trouble.<br> 
+                </p>
+
+                <p><h4><strong>Whom can I talk to?</strong></h4></p>
+                <p>
+                  You can announce your contracts on the <em>Brave Contracts</em> mailinglist or join the <em>Brave Hauling Public</em> channel.<br> Director of Freighting Logistics is <a href="#" class="eve-link" onmouseover="popChar($(this), 92872309, 'Nancy Crow');">Nancy Crow</a>.
+                </p>
+              </div>
+            </div>          
+
+          </div> <!-- column -->
+
+          <div class="col-xs-6 col-md-4"> <!-- column -->
+      
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title"><strong>Make a profit</strong></h3>
+              </div>
+              <div class="panel-body">
+                All courier contracts are assigned to the alliance. Any member can pick them up and earn some ISK on completion.<br>
+                
+                <p><h4><strong>I can just pick up any contract?</strong></h4></p>
+                <p>
+                  Some constraints apply.<br>
+                  The contracts collateral has to be escrowed in advance. Up to 1B ISK liquid cash may be required to accept a contract.<br>
+                  You might confine yourself to hisec deliveries only as they are way less risky. 
+                </p>
+
+                <p><h4><strong>Isn't even highsec dangerous?</strong></h4></p>
+                <p>
+                    Yes it is.<br>
+                    As we have constant wardecs against us, it is recommended to accept contracts on your main and subcontract them to your out-of-corp alt.                                        
+                </p>
+
+                <p><h4><strong>When do I lose the escrow?</strong></h4></p>
+                <p>
+                    Obviously you lose the escrow when losing the cargo / fail to deliver.<br>
+                    Be aware that escrow is also lost when the completion deadline (usually 1 day) is exceeded.                    
+                </p>
+
+                <p><h4><strong>What about blueing my alt?</strong></h4></p>
+                <p>
+                    <p>We are <span class="text-danger"><strong>only</strong></span> blueing blockade runner and jump freighter alts.</p>
+                    <p>1. Create an <a href="http://support.eveonline.com/api/Key/CreatePredefined/58720256">API Key</a> of your <em>BRAVE</em> and <em>hauling</em> character. Both keys need CharacterInfo (public), AccountStatus (private) and CharacterInfo (private).</p>
+                    <p>2. Send a mail to <a href="#" class="eve-link" onmouseover="popChar($(this), 93801020, 'Alliance Crow');">Alliance Crow</a> with the following information:</p>
+                    <ul>
+                    <li> Link to your <em>BRAVE</em> character
+                    <li> Key ID and Verification Code of your <em>BRAVE</em> character
+                    <li> Link to your <em>hauling</em> character
+                    <li> Key ID and Verification Code of your <em>hauling</em> character
+                    <li> List the hauling ship types you are able to fly
+                    </ul>
+                    <p>3. Wait a few days for <a href="#" class="eve-link" onmouseover="popChar($(this), 93801020, 'Alliance Crow');">Alliance Crow</a> to respond. Double check alliance standing once you are blued!</p>
+                </p>
+
+              </div>
+            </div>
+                      
+          </div> <!-- column -->
+
+          <div class="col-xs-6 col-md-4"> <!-- column -->
+            
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title"><strong>External</strong></h3>
+              </div>
+              <div class="panel-body">
+                <p>There are a lot of external tools/services available for public consumption.</p>
+
+                <p><h4><strong>Any helpful tools?</strong></h4></p>
+                <p>
+                  <ul>
+                    <li>
+                      <a href="http://evepraisal.com/">Evepraisal</a><br>
+                      Copy+paste price checking tool 
+                    </li>
+                    <li>
+                      <a href="http://eve-central.com/">EVE-Central</a><br>
+                      Price check
+                    </li>
+                    <li>
+                      <a href="http://evemaps.dotlan.net/jump">Jump Planner</a><br>
+                      Plan a trip for your jump capable ship
+                    </li>
+                  </ul>
+                </p>
+
+                <p><h4><strong>Any other public freighting services?</strong></h4></p>
+                <p>
+                  <ul>
+                    <li>
+                      <a href="http://red-frog.org/jumps.php">Red Frog Freight</a><br>
+                      Highsec
+                    </li>
+                    <li>
+                      <a href="http://blue-frog.red-frog.org/jumps.php">Blue Frog Freight</a><br>
+                      Highsec; High collateral; Rush
+                    </li>
+                    <li>
+                      <a href="http://black-frog.red-frog.org/jumps.php">Black Frog Freight</a><br>
+                      Low and nullsec
+                    </li>
+                    <li>
+                      <a href="http://www.pushx.net/quote.php">PushX</a><br>
+                      High, low and nullsec; High collateral; Rush
+                    </li>
+                  </ul>
+                </p>
+              </div>
+            </div>
+
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title"><strong>Carrier transports</strong></h3>
+              </div>
+              <div class="panel-body">
+                <p>Sometimes a wild carrier appears and offers free freighting service for fitted ships in order to help alliance operations.</p>
+                
+                <p><h4><strong>Why is a carrier used for that?</strong></h4></p>
+                <p>
+                  While a jump freighter can hold around 320k m&sup3;, a carrier has a <em>Ship Maintenance Bay</em> with impressive 1M m&sup3; cargo space.
+                </p>
+
+                <p><h4><strong>Anything special I need to follow?</strong></h4></p>
+                <p>
+                  A carrier can transport ships in his <em>Ship Maintenance Bay</em>, but a few limitations apply:
+                  <ul>
+                    <li>Only <a href="https://wiki.eveonline.com/en/wiki/Item_Database:Ammunition_&_Charges">ammo and charge items</a> allowed in cargo</li>
+                    <li>Modules need to be unloaded (not unfitted)</li>
+                    <li>Drone bay can be filled with drones</li>
+                  </ul>
+                </p>
+
+                <p><h4><strong>So I setup a courier contract?</strong></h4></p>
+                <p>
+                  No.<br>
+                  Either directly trade the carrier pilot your ships or setup an <em>item exchange</em> contract. The carrier pilot will tell you his preferred method.<br> 
+                  Whatever you do, it it is vital that you set the names of all your ships to your charachter name.  
+                </p>
+                
+                <p><h4><strong>What is the catch?</strong></h4></p>
+                <p>
+                  As mentioned above, these kind of deals are rarely backed up by a collateral. You need to fully trust the carrier pilot.<br>
+                  <span class="text-danger"><strong>Deals without collateral are extremely risky!</strong></span>                   
+                </p>
+              </div>
+            </div>
+          
+          </div> <!-- column -->
+
+
+        </div>
+      </div>
+<!-- Content -->
+
+<!-- Footer -->
+    <div id="footer">
+      <div class="container">        
+        <p class="small text-muted pull-right text-right">        
+          Brought to you by <a href="#" class="eve-link" onmouseover="popChar($(this), 92938653, 'kiu Nakamura');">kiu Nakamura</a>
+        </p>
+      </div>
+    </div>
+<!-- Footer -->
+
+<!-- Popups -->
+     <div class="hide" id="popchar" style="background:white;">
+        <table style='border: 1px solid;'>
+          <thead>
+            <tr style='border-bottom: 1px solid;'>
+              <th colspan='3' style='padding-left:2px;' id="popchar-name">&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td width='64' height='64' background='img/loaderb32.gif' style='padding:2px; background-repeat:no-repeat; background-position:center;' id="popchar-image">&nbsp;</td>
+              <td style='padding-left:5px; padding-right:5px; padding-top:3px; vertical-align:top;' id="popchar-content-1">&nbsp;</td>
+              <td style='padding-left:5px; padding-right:5px; padding-top:3px; vertical-align:top;' id="popchar-content-2">&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="hide" id="popsys" style="background:white;">
+        <table style='border: 1px solid;'>
+          <thead>
+            <tr style='border-bottom: 1px solid;'>
+              <th colspan='2' style='padding-left:2px;' id="popsys-name">&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>      
+              <td style='padding-left:5px; padding-right:5px; padding-top:3px; vertical-align:top;' id="popsys-content-1">&nbsp;</td>
+              <td style='padding-left:5px; padding-right:5px; padding-top:3px; vertical-align:top;' id="popsys-content-2">&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+<!-- Popups -->
+
+<!-- Clipboard -->
+      <div class="modal" id="clipboard" tabindex="-1" role="dialog" aria-labelledby="clipboardLabel" aria-hidden="true" onkeydown="if (event.keyCode == 13) $('#clipboard').modal('hide');">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="clipboardLabel">Copy to clipboard: CTRL-C, Enter</h4>
+            </div>
+            <div class="modal-body">
+              <input type="text" class="form-control text-right" id="clipboard-content">      
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- Clipboard -->
+          
+      <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>      
+      <script src="dist/js/bootstrap.min.js"></script>
+      <script src="jquery-cookie-master/jquery.cookie.js"></script>
+      <script src="eve.js"></script>
+
+  </body>
+
+</html>

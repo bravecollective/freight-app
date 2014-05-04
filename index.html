@@ -1,146 +1,289 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">     
 
-<style type="text/css">
-	body {
-		background-color: #000123;
-		color: white;
-	}
-	table {
-		border: 2px;
-		border-style: solid;
-		border-color: white;
-	}
-	th {
-		padding: 3px;
-	}
-	td {
-		padding: 2px;
-	}
+  <head>         
+    <meta charset="utf-8">         
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">         
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">         
+    <meta name="description" content="BRAVE Freight">         
+    <meta name="author" content="kiu Nakamura">         
+    <link rel="shortcut icon" href="favicon.png">         
+    <title>BRAVE Freight</title>         
+    <link href="dist/css/bootstrap.css" rel="stylesheet">         
+    <link href="starter-template.css" rel="stylesheet">         
+    <link href="eve.css" rel="stylesheet">
+  </head>     
 
-</style>
-<head>
-<title>Brave Freight Calculator</title>
-</head>
-<body>
-<table border="0" style="padding: 10px;">
+  <body>
+ 
+<!-- Navigation -->
+     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><img src='img/brave.png'></a>
+        </div>
+        <div class="collapse navbar-collapse pull-right">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">Overview</a></li>
+            <li><a href="jf.html">Jump Freighter</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src='img/settings.png'><b class="caret"></b></a>
+              <ul class="dropdown-menu pull-right">
+                <li class="dropdown-header">Helper functions</li>
+                <li><a href="#" onclick="toggleNumberformat();">Toggle Numberformat</a></li>
+                <li><a href="#" onclick="clearCookies();location.reload();">Clear all cookies</a></li>                
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+<!-- Navigation -->
+  
+<!-- Alerts -->
+      <div class="alert alert-info hide fade" id="alert-use-igb">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true" onclick="$.cookie('bf-alert-igb', '1', {expires: 3650});">&times;</button>
+        Tip: Using the <strong>in-game browser</strong> enables additional convenience features
+      </div>
 
-	<tr>
-		<td><h1>Brave Freight Calculator<h2></td>
-	</tr>
+      <div class="alert alert-info hide fade" id="alert-not-trusted">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true" onclick="$.cookie('bf-alert-not-trusted', '1', {expires: 3650})">&times;</button>        
+        <p>
+          Tip: <strong>Trusting this site</strong> enables additional convenience features<br>        
+          <small>Please reload this page once after granting trust</small>
+        </p>
+        <br>
+        <button type="button" class="btn btn-danger" onclick="CCPEVE.requestTrust('http://freight.bravecollective.net/*');">Trust this site</button>        
+      </div>
+<!-- Alerts -->
 
-	<tr><td style="text-align: right; font-weight:bold; font-size:80%">Routes</td></tr>
-	<tr><td style="text-align: right; font-weight:bold; font-size:75%"><span style="color:#8FEF2F;">Stacmon X-1-FABO</span> <span style="color:#888888;">&lt;--&gt;</span> <span style="color:#D73000;">Barleguet VII-6-CAS</span></td></tr>
-	<tr><td style="text-align: right; font-weight:bold; font-size:75%"><span style="color:#8FEF2F;">Stacmon X-1-FABO</span> <span style="color:#888888;">&lt;--&gt;</span> <span style="color:#F00000;">Y-W6GF VIII-17-ISPLS</span></td></tr>
-	<tr><td style="text-align: right; font-weight:bold; font-size:75%"><span style="color:#D73000;">Barleguet VII-6-CAS</span> <span style="color:#888888;">&lt;--&gt;</span> <span style="color:#F00000;">Y-W6GF VIII-17-ISPLS</span></td></tr>
+<!-- Lead -->
+      <div class="starter-template">
+        <h1>Moving Stuff for Fun and Profit</h1>                 
+        <p>See rates below and checkout the <a href="faq.html">FAQ</a></p>
+	<p class="text-danger">Do not contract <strong>unpackaged</strong> containers or ships</p>        
+      </div>   
+<!-- Lead -->                
 
-<!--
-    #2FEFEF 	1.0
-    #48F0C0 	0.9
-    #00EF47 	0.8
-    #00F000 	0.7
-    #8FEF2F 	0.6
-    #EFEF00 	0.5
-    #D77700 	0.4
-    #F06000 	0.3
-    #F04800 	0.2
-    #D73000 	0.1
-    #F00000 	0.0
--->
+<!-- Overview Freight -->
+      <div class="container">
+        <table class="table table-striped">                      
+          <thead>                          
+            <tr>                              
+              <th>System</th>
+              <th>&nbsp;</th>                              
+              <th>System</th>
+              <th>Type</th>                              
+              <th class="text-right">Max Cargo</th>                              
+              <th class="text-right">Max Collateral</th>
+              <th class="text-right">Expire</th>   
+              <th class="text-right">Reward</th>                                       
+            </tr>                      
+          </thead>                      
 
-	<tr><td>&nbsp;</td></tr>
+          <tbody>                          
+            <tr>
+              <td>Any High-Sec</td>                                          
+              <td><span style="color:black;">&#8596;</span></td>
+              <td>Any High-Sec</td>
+              <td>Full Freighter<br>Half Freighter<br>T1 Hauler</td>
+              <td class="text-right">860<span id="fsep"></span>000 m&sup3;<br>430<span id="fsep"></span>000 m&sup3;<br>30<span id="fsep"></span>000 m&sup3;</td>
+              <td class="text-right">1<span id="fsep"></span>000M ISK<br>500M ISK<br>80M ISK</td>
+              <td class="text-right">7 days<br>7 days<br>3 days</td>
+              <td class="text-right">                
+                <a href="#" onclick="$('#clipboard').modal('show');$('#clipboard-content').val('20000000').select();">20M ISK</a><br>
+                <a href="#" onclick="$('#clipboard').modal('show');$('#clipboard-content').val('10000000').select();">10M ISK</a><br>
+                <a href="#" onclick="$('#clipboard').modal('show');$('#clipboard-content').val('5000000').select();">5M ISK</a>
+            </tr>            
+            <tr>
+              <td>
+                <span class="eve-system-10" onmouseover="popSys($(this), 30002187, 'Amarr', '1.0', 'eve-system-10', 60008494, 'Amarr VIII');">Amarr</span>,
+                <span class="eve-system-09" onmouseover="popSys($(this), 30002659, 'Dodixie', '0.9', 'eve-system-09', 60011866, 'Dodixie IX-20');">Dodixie</span>, 
+                <span class="eve-system-09" onmouseover="popSys($(this), 30000142, 'Jita', '0.9', 'eve-system-09', 60003466, 'Jita IV-4');">Jita</span>, 
+                <span class="eve-system-09" onmouseover="popSys($(this), 30002510, 'Rens', '0.9', 'eve-system-09', 60004588, 'Rens VI-8');">Rens</span>
+              </td>                                          
+              <td><span style="color:black;">&#8596;</span></td>
+              <td><div class="eve-system-06" onmouseover="popSys($(this), 30003794, 'Stacmon', '0.6', 'eve-system-06', 60011701, 'Stacmon X-1');">Stacmon X-1</div></td>
+              <td>Full Freighter<br>Half Freighter<br>T1 Hauler</td>
+              <td class="text-right">860<span id="fsep"></span>000 m&sup3;<br>430<span id="fsep"></span>000 m&sup3;<br>30<span id="fsep"></span>000 m&sup3;</td>
+              <td class="text-right">1<span id="fsep"></span>000M ISK<br>500M ISK<br>80M ISK</td>
+              <td class="text-right">7 days<br>7 days<br>3 days</td>
+              <td class="text-right">
+                <a href="#" onclick="$('#clipboard').modal('show');$('#clipboard-content').val('10000000').select();">10M ISK</a><br>
+                <a href="#" onclick="$('#clipboard').modal('show');$('#clipboard-content').val('5000000').select();">5M ISK</a><br>
+                <a href="#" onclick="$('#clipboard').modal('show');$('#clipboard-content').val('2000000').select();">2M ISK</a>
+              </td>
+            </tr>
+            
+            <tr>
+              <td>
+                <span class="eve-system-10" onmouseover="popSys($(this), 30002187, 'Amarr', '1.0', 'eve-system-10', 60008494, 'Amarr VIII');">Amarr</span>, 
+                <span class="eve-system-09" onmouseover="popSys($(this), 30002659, 'Dodixie', '0.9', 'eve-system-09', 60011866, 'Dodixie IX-20');">Dodixie</span>, 
+                <span class="eve-system-09" onmouseover="popSys($(this), 30000142, 'Jita', '0.9', 'eve-system-09', 60003466, 'Jita IV-4');">Jita</span>, 
+                <span class="eve-system-09" onmouseover="popSys($(this), 30002510, 'Rens', '0.9', 'eve-system-09', 60004588, 'Rens VI-8');">Rens</span>
+                <br>
+                <span class="eve-system-06" onmouseover="popSys($(this), 30003794, 'Stacmon', '0.6', 'eve-system-06', 60011701, 'Stacmon X-1');">Stacmon X-1</span><br>
+              </td>                                            
+              <td><span style="color:black;">&#8596;</span></td>
+              <td><div class="eve-system-01" onmouseover="popSys($(this), 30003819, 'Barleguet', '0.1', 'eve-system-01', 60014722, 'Barleguet VII-6');">Barleguet VII-6</div></td>
+              <td>Blockade Runner</td>
+              <td class="text-right">9<span id="fsep"></span>000 m&sup3;</td>
+              <td class="text-right">1<span id="fsep"></span>000M ISK</td>
+              <td class="text-right">3 days</td>
+              <td class="text-right"><a href="#" onclick="$('#clipboard').modal('show');$('#clipboard-content').val('5000000').select();">5M ISK</a></td>                
+            </tr>            
+                              
+            <tr>
+              <td>
+                <span class="eve-system-06" onmouseover="popSys($(this), 30003794, 'Stacmon', '0.6', 'eve-system-06', 60011701, 'Stacmon X-1');">Stacmon X-1</span><br>
+                <span class="eve-system-01" onmouseover="popSys($(this), 30003819, 'Barleguet', '0.1', 'eve-system-01', 60014722, 'Barleguet VII-6');">Barleguet VII-6</span><br> 
+                <span class="eve-system-00" onmouseover="popSys($(this), 30003342 , 'Y-W6GF', '0.0', 'eve-system-00', 60013453, 'Y-W6GF VIII-17');">Y-W6GF VIII-17</span><br> 
+              </td>
+              <td><span style="color:black;">&#8596;</span></td>
+              <td>
+                <span class="eve-system-06" onmouseover="popSys($(this), 30003794, 'Stacmon', '0.6', 'eve-system-06', 60011701, 'Stacmon X-1');">Stacmon X-1</span><br> 
+                <span class="eve-system-01" onmouseover="popSys($(this), 30003819, 'Barleguet', '0.1', 'eve-system-01', 60014722, 'Barleguet VII-6');">Barleguet VII-6</span><br> 
+                <span class="eve-system-00" onmouseover="popSys($(this), 30003342 , 'Y-W6GF', '0.0', 'eve-system-00', 60013453, 'Y-W6GF VIII-17');">Y-W6GF VIII-17</span><br> 
+              </td>
+              <td>Jump Freighter</td>
+              <td class="text-right">320<span id="fsep"></span>000 m&sup3;</td>
+              <td class="text-right">1<span id="fsep"></span>000M ISK</td>
+              <td class="text-right">7 days</td>
+              <td class="text-right"><a href="jf.html">Calculate</a></td>                
+            </tr>                          
+          </tbody>                  
+        </table>  
+      </div>      
+<!-- Overview Freight -->
 
-	<tr><td>
-<table align="center">
-<tr>
-	<th colspan="3" style="text-align: center;">Freight</th>
-</tr>
-<tr>
-	<td style="text-align: left;">Size</td>
-	<td><input style="text-align: right;" type="text" id="sizeInput" value="0" size="12"></td>
-	<td style="text-align: left;">m&#179;</td>
-</tr>
-<tr>
-	<td style="text-align: left;">Collateral</td>
-	<td><input style="text-align: right;" type="text" id="collateralInput" value="0" size="12"></td>
-	<td style="text-align: left;">ISK</td>
-</tr>
-<tr>
-	<td colspan="3" style="text-align: center;"><input style="width: 80%;" type="button" value="Calculate" onclick="calc()"></td>
-</td></tr>
-</table>
-	</td></tr>
+<!-- Lead -->
+      <div class="starter-template">
+        <h3>Carrier Service</h3>
+	<p>Be aware of the risks on carrier transports - read the <a href="faq.html">FAQ</a></p>	
+<p class="text-danger">For <strong>assembled</strong> ships only</p>
+      </div>   
+<!-- Lead -->  
 
-	<tr align="center"><td style="color: #FFAA00; font-weight: bold;" id="sizeWarning">&nbsp;</td></tr>
-	<tr align="center"><td style="color: #FFAA00; font-weight: bold;" id="collateralWarning">&nbsp;</td></tr>
+<!-- Overview Carrier -->
+      <div class="container">
+        <table class="table table-striped">                      
+          <thead>                          
+            <tr>                              
+              <th>System</th>
+              <th>&nbsp;</th>                              
+              <th>System</th>
+              <th>Type</th>                              
+              <th class="text-right">Max Cargo</th>                              
+              <th class="text-right">Contact</th>
+              <th class="text-right">Pilot</th>
+              <th class="text-right">Details</th>
+              <th class="text-right">Reward</th>                                       
+            </tr>                      
+          </thead>                      
 
-	<tr><td>
-<table align="center">
-	<tr>
-		<th colspan="3" style="text-align: center;">Cost</th>
-	</tr>
-	<tr>
-		<td>Setup</td>
-		<td>&nbsp;</td>
-		<td style="text-align: right;">1M</td>
-	</tr>
-	<tr>
-		<td>Size</td>
-		<td style="font-size: 80%">2M / 20.000 m&#179;</td>
-		<td style="text-align: right;" id="sizeResult">N/A</td>
-	</tr>
-	<tr>
-		<td>Collateral</td>
-		<td style="font-size: 80%">2M / 62.5M</td>
-		<td style="text-align: right;" id="collateralResult">N/A</td>
-	</tr>
-	<tr>
-		<td style="font-weight: bold;">Sum</td>
-		<td>&nbsp;</td>
-		<td id="sum" style="font-weight: bold; text-align: right;">N/A</td>
-	</tr>
-</table>
+          <tbody>                          
+            <tr>
+              <td><span class="eve-system-01" onmouseover="popSys($(this), 30003819, 'Barleguet', '0.1', 'eve-system-01', 60014722, 'Barleguet VII-6');">Barleguet VII-6</span></td>                                          
+              <td><span style="color:black;">&#8596;</span></td>
+              <td>Any Placid Low-Sec</td>
+              <td>Carrier</td>
+              <td class="text-right">1<span id="fsep"></span>000<span id="fsep"></span>000 m&sup3;</td>
+              <td class="text-right"><a href="#" class="eve-link" onmouseover="popChar($(this), 91995590, 'StupidGenius Charante');">StupidGenius Charante</a></td>
+              <td class="text-right"><a href="#" class="eve-link" onmouseover="popChar($(this), 92418629, 'Stu Aivo');">Stu Aivo</a></td>
+              <td class="text-right"><a href="https://forums.bravecollective.net/i/530697a758b70064ff2244dc">Forum</a></td>
+              <td class="text-right"><a href="#" onclick="$('#clipboard').modal('show');$('#clipboard-content').val('10000000').select();">10M ISK</a></td>                
+            </tr>            
+            <tr>
+              <td> <span class="eve-system-01" onmouseover="popSys($(this), 30003819, 'Barleguet', '0.1', 'eve-system-01', 60014722, 'Barleguet VII-6');">Barleguet VII-6</span></td>                                          
+              <td><span style="color:black;">&#8596;</span></td>
+              <td> <span class="eve-system-00" onmouseover="popSys($(this), 30003342 , 'Y-W6GF', '0.0', 'eve-system-00', 60013453, 'Y-W6GF VIII-17');">Y-W6GF VIII-17</span></td>
+              <td>Carrier</td>
+              <td class="text-right">1<span id="fsep"></span>000<span id="fsep"></span>000 m&sup3;</td>
+              <td class="text-right"><a href="#" class="eve-link" onmouseover="popChar($(this), 91995590, 'StupidGenius Charante');">StupidGenius Charante</a></td>
+              <td class="text-right"><a href="#" class="eve-link" onmouseover="popChar($(this), 92418629, 'Stu Aivo');">Stu Aivo</a></td>
+              <td class="text-right"><a href="https://forums.bravecollective.net/i/530697a758b70064ff2244dc">Forum</a></td>
+              <td class="text-right"><a href="#" onclick="$('#clipboard').modal('show');$('#clipboard-content').val('7000000').select();">7M ISK</a></td>                
+            </tr>            
+          </tbody>                  
+        </table>  
+      </div>      
+<!-- Overview Carrier -->
 
-	</td>
-	</tr>
+<p></p>
 
-</table>
-<p style="color: white; text-align: left; font-size: 80%;">kiu Nakamura</p>
+<!-- Footer -->
+    <div id="footer">
+      <div class="container">        
+        <p class="small text-muted pull-right text-right">        
+          Brought to you by <a href="#" class="eve-link" onmouseover="popChar($(this), 92938653, 'kiu Nakamura');">kiu Nakamura</a>
+        </p>
+      </div>
+    </div>
+<!-- Footer -->
 
-<script type="text/javascript">
-	function calc() {
-		var size = document.getElementById('sizeInput');
-		var collateral = document.getElementById('collateralInput');
+<!-- Popups -->
+     <div class="hide" id="popchar" style="background:white;">
+        <table style='border: 1px solid;'>
+          <thead>
+            <tr style='border-bottom: 1px solid;'>
+              <th colspan='3' style='padding-left:2px;' id="popchar-name">&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td width='64' height='64' background='img/loaderb32.gif' style='padding:2px; background-repeat:no-repeat; background-position:center;' id="popchar-image">&nbsp;</td>
+              <td style='padding-left:5px; padding-right:5px; padding-top:3px; vertical-align:top;' id="popchar-content-1">&nbsp;</td>
+              <td style='padding-left:5px; padding-right:5px; padding-top:3px; vertical-align:top;' id="popchar-content-2">&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-		var mul_size = Math.max (1, Math.ceil(size.value / 20000));
-		var mul_collateral = Math.max (1, Math.ceil(collateral.value / 62500000));
-		if (mul_size >= mul_collateral) {
-			document.getElementById('sizeResult').innerHTML = (mul_size * 2) + "M";
-		} else {
-			document.getElementById('sizeResult').innerHTML = "N/A";
-		}
-		if (mul_collateral > mul_size) {
-			document.getElementById('collateralResult').innerHTML = (mul_collateral * 2) + "M";
-		} else {
-			document.getElementById('collateralResult').innerHTML = "N/A";
-		}
-		document.getElementById('sum').innerHTML = (1 + (Math.max(mul_size, mul_collateral) * 2)) + "M";
+      <div class="hide" id="popsys" style="background:white;">
+        <table style='border: 1px solid;'>
+          <thead>
+            <tr style='border-bottom: 1px solid;'>
+              <th colspan='2' style='padding-left:2px;' id="popsys-name">&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>      
+              <td style='padding-left:5px; padding-right:5px; padding-top:3px; vertical-align:top;' id="popsys-content-1">&nbsp;</td>
+              <td style='padding-left:5px; padding-right:5px; padding-top:3px; vertical-align:top;' id="popsys-content-2">&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+<!-- Popups -->
 
-		if (size.value > 320000) {
-			document.getElementById('sizeWarning').innerHTML ="Maximum size is 320.000 m&#179;";
-		} else {
-			document.getElementById('sizeWarning').innerHTML ="&nbsp;";
-		}
+<!-- Clipboard -->
+      <div class="modal" id="clipboard" tabindex="-1" role="dialog" aria-labelledby="clipboardLabel" aria-hidden="true" onkeydown="if (event.keyCode == 13) $('#clipboard').modal('hide');">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="clipboardLabel">Copy to clipboard: CTRL-C, Enter</h4>
+            </div>
+            <div class="modal-body">
+              <input type="text" class="form-control text-right" id="clipboard-content">      
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- Clipboard -->
+          
+      <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>      
+      <script src="dist/js/bootstrap.min.js"></script>
+      <script src="jquery-cookie-master/jquery.cookie.js"></script>
+      <script src="eve.js"></script>
 
-		if (collateral.value > 1000000000) {
-			document.getElementById('collateralWarning').innerHTML ="Maximum collateral is 1B ISK";
-		} else {
-			document.getElementById('collateralWarning').innerHTML ="&nbsp;";
-		}
-
-
-	}
-
-</script>
-</body>
+  </body>
 
 </html>
