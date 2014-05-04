@@ -1,0 +1,146 @@
+<html>
+
+<style type="text/css">
+	body {
+		background-color: #000123;
+		color: white;
+	}
+	table {
+		border: 2px;
+		border-style: solid;
+		border-color: white;
+	}
+	th {
+		padding: 3px;
+	}
+	td {
+		padding: 2px;
+	}
+
+</style>
+<head>
+<title>Brave Freight Calculator</title>
+</head>
+<body>
+<table border="0" style="padding: 10px;">
+
+	<tr>
+		<td><h1>Brave Freight Calculator<h2></td>
+	</tr>
+
+	<tr><td style="text-align: right; font-weight:bold; font-size:80%">Routes</td></tr>
+	<tr><td style="text-align: right; font-weight:bold; font-size:75%"><span style="color:#8FEF2F;">Stacmon X-1-FABO</span> <span style="color:#888888;">&lt;--&gt;</span> <span style="color:#D73000;">Barleguet VII-6-CAS</span></td></tr>
+	<tr><td style="text-align: right; font-weight:bold; font-size:75%"><span style="color:#8FEF2F;">Stacmon X-1-FABO</span> <span style="color:#888888;">&lt;--&gt;</span> <span style="color:#F00000;">Y-W6GF VIII-17-ISPLS</span></td></tr>
+	<tr><td style="text-align: right; font-weight:bold; font-size:75%"><span style="color:#D73000;">Barleguet VII-6-CAS</span> <span style="color:#888888;">&lt;--&gt;</span> <span style="color:#F00000;">Y-W6GF VIII-17-ISPLS</span></td></tr>
+
+<!--
+    #2FEFEF 	1.0
+    #48F0C0 	0.9
+    #00EF47 	0.8
+    #00F000 	0.7
+    #8FEF2F 	0.6
+    #EFEF00 	0.5
+    #D77700 	0.4
+    #F06000 	0.3
+    #F04800 	0.2
+    #D73000 	0.1
+    #F00000 	0.0
+-->
+
+	<tr><td>&nbsp;</td></tr>
+
+	<tr><td>
+<table align="center">
+<tr>
+	<th colspan="3" style="text-align: center;">Freight</th>
+</tr>
+<tr>
+	<td style="text-align: left;">Size</td>
+	<td><input style="text-align: right;" type="text" id="sizeInput" value="0" size="12"></td>
+	<td style="text-align: left;">m&#179;</td>
+</tr>
+<tr>
+	<td style="text-align: left;">Collateral</td>
+	<td><input style="text-align: right;" type="text" id="collateralInput" value="0" size="12"></td>
+	<td style="text-align: left;">ISK</td>
+</tr>
+<tr>
+	<td colspan="3" style="text-align: center;"><input style="width: 80%;" type="button" value="Calculate" onclick="calc()"></td>
+</td></tr>
+</table>
+	</td></tr>
+
+	<tr align="center"><td style="color: #FFAA00; font-weight: bold;" id="sizeWarning">&nbsp;</td></tr>
+	<tr align="center"><td style="color: #FFAA00; font-weight: bold;" id="collateralWarning">&nbsp;</td></tr>
+
+	<tr><td>
+<table align="center">
+	<tr>
+		<th colspan="3" style="text-align: center;">Cost</th>
+	</tr>
+	<tr>
+		<td>Setup</td>
+		<td>&nbsp;</td>
+		<td style="text-align: right;">1M</td>
+	</tr>
+	<tr>
+		<td>Size</td>
+		<td style="font-size: 80%">2M / 20.000 m&#179;</td>
+		<td style="text-align: right;" id="sizeResult">N/A</td>
+	</tr>
+	<tr>
+		<td>Collateral</td>
+		<td style="font-size: 80%">2M / 62.5M</td>
+		<td style="text-align: right;" id="collateralResult">N/A</td>
+	</tr>
+	<tr>
+		<td style="font-weight: bold;">Sum</td>
+		<td>&nbsp;</td>
+		<td id="sum" style="font-weight: bold; text-align: right;">N/A</td>
+	</tr>
+</table>
+
+	</td>
+	</tr>
+
+</table>
+<p style="color: white; text-align: left; font-size: 80%;">kiu Nakamura</p>
+
+<script type="text/javascript">
+	function calc() {
+		var size = document.getElementById('sizeInput');
+		var collateral = document.getElementById('collateralInput');
+
+		var mul_size = Math.max (1, Math.ceil(size.value / 20000));
+		var mul_collateral = Math.max (1, Math.ceil(collateral.value / 62500000));
+		if (mul_size >= mul_collateral) {
+			document.getElementById('sizeResult').innerHTML = (mul_size * 2) + "M";
+		} else {
+			document.getElementById('sizeResult').innerHTML = "N/A";
+		}
+		if (mul_collateral > mul_size) {
+			document.getElementById('collateralResult').innerHTML = (mul_collateral * 2) + "M";
+		} else {
+			document.getElementById('collateralResult').innerHTML = "N/A";
+		}
+		document.getElementById('sum').innerHTML = (1 + (Math.max(mul_size, mul_collateral) * 2)) + "M";
+
+		if (size.value > 320000) {
+			document.getElementById('sizeWarning').innerHTML ="Maximum size is 320.000 m&#179;";
+		} else {
+			document.getElementById('sizeWarning').innerHTML ="&nbsp;";
+		}
+
+		if (collateral.value > 1000000000) {
+			document.getElementById('collateralWarning').innerHTML ="Maximum collateral is 1B ISK";
+		} else {
+			document.getElementById('collateralWarning').innerHTML ="&nbsp;";
+		}
+
+
+	}
+
+</script>
+</body>
+
+</html>
