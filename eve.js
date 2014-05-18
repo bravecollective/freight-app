@@ -54,6 +54,11 @@ $("#popchar").mouseleave(function() {
   $("#popchar").addClass('hide');
 });
 
+$("#popcorp").mouseleave(function() {
+  $("#popcorp").removeClass('hide');
+  $("#popcorp").addClass('hide');
+});
+
 function popShow(obj, overlay) {
   $(overlay).css({left: 0, top: 0, position:'absolute'});
   $(overlay).removeClass('hide');
@@ -142,6 +147,41 @@ function popSys(obj, sysid, sysname, syssecurity, sysclass, stnid, stnname) {
    popShow(obj, '#popsys');
 }
 
+function popCorp(obj, corpid, corpname) {
+  var cnt;
+  
+  $('#popcorp-name').html(corpname);
+  $('#popcorp-image').html('<img src="https://image.eveonline.com/Corporation/' + corpid + '_64.png">');
+
+  cnt = "";
+  cnt += '<a href="http://evewho.com/corp/' + corpname + '" target="_blank">Eve Who</a>';
+  cnt += '<br>';
+  cnt += '<a href="http://eve-kill.net/?a=corp_detail&crp_external_id=' + corpid + '" target="_blank">EVE-Kill</a>';
+  cnt += '<br>';
+  cnt += '<a href="https://zkillboard.com/corporation/' + corpid + '/" target="_blank">zKillboard</a>';  
+  $('#popcorp-content-1').html(cnt);
+  
+  cnt = "";
+  if (isIGB()) {
+    cnt += '<a href="#" class="eve-link" onclick="CCPEVE.showInfo(2, ' + corpid + ');">Show Info</a>';
+  } else {
+    cnt += '<span class="disabled">Show Info</span>';
+  }
+  cnt += '<br>';
+
+  if (isIGBTrusted()) {
+    cnt += '<a href="#" class="eve-link" onclick="CCPEVE.addCorpContact(' + corpid + ');">Add Contact</a>';
+    cnt += '<br>';
+    cnt += '<a href="#" class="eve-link" onclick="CCPEVE.showContracts(' + corpid + ');">Show Contracts</a>';
+  } else {
+    cnt += '<span class="disabled">Add Contact</span>';
+    cnt += '<br>';
+    cnt += '<span class="disabled">Show Contracts</span>';
+  }  
+  $('#popcorp-content-2').html(cnt);
+  
+  popShow(obj, '#popcorp');
+}
 // ---------------------------------------------------------------
 
 $( document ).ready(function() {
@@ -493,6 +533,6 @@ function copyToClipboard(text) {
 
 // ---------------------------------------------------------------
 
-  $('.popover-reward').popover();
+$('.popover-reward').popover();
 
 // ---------------------------------------------------------------

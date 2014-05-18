@@ -71,6 +71,18 @@
       </div>   
 <!-- Lead -->
 
+<!-- Alerts -->
+      <div class="container">
+      	<div class="alert alert-success fade in">
+        	<h4>
+						<b>PSA: Brave Little Toaster. resurrected!</b><br>
+						All courier contracts need to be assigned to the <b><a href="#" class="eve-link" onmouseover="popCorp($(this), 98209548, 'Brave Little Toaster.');">Brave Little Toaster.</a></b> corporation.
+
+					</h4>
+      	</div>
+      </div>
+<!-- Alerts -->
+
 <!-- Content -->
       <div class="container">
         <div class="row">
@@ -95,7 +107,10 @@
                   <em>Create Contract</em>:<br> 
                   <ul>
                     <li>Contract Type: Courier</li>
-                    <li>Availability: My Alliance</li>
+                    <li>Availability: Private</li>
+                    <li>Name: <a href="#" class="eve-link" onmouseover="popCorp($(this), 98209548, 'Brave Little Toaster.');">Brave Little Toaster.</a></li>
+                    <li class="text-muted">Click <em>next</em></li>
+                    <li>Select: <a href="#" class="eve-link" onmouseover="popCorp($(this), 98209548, 'Brave Little Toaster.');">Brave Little Toaster.</a> (dot and blue)</li>
                     <li class="text-muted">Click <em>next</em></li>
                     <li>Select station and items</li>
                     <li class="text-muted">Click <em>next</em></li>
@@ -119,7 +134,7 @@
 
                 <p><h4><strong>Just set the collateral to maximum?</strong></h4></p>
                 <p>
-                  Please don't.<br>
+                  <b>Please don't.</b><br>
                   Freighter pilots try to fill up their cargo space as much as possible while keeping their overall collateral low in order to reduce
                   the likelyhood of being ganked.<br>
                   If you max out the collateral on cheap cargo, the pilot wouldn't be able to accept additional contracts for his tour.       
@@ -155,7 +170,11 @@
                 <h3 class="panel-title"><strong>Make a profit</strong></h3>
               </div>
               <div class="panel-body">
-                All courier contracts are assigned to the alliance. Any member can pick them up and earn some ISK on completion.<br>
+								<h1 class="text-danger">Partially outdated</h1>
+								<h3>Will be updated soon&trade;</h3>
+								<hr>
+								<br>
+                All courier contracts are assigned to <a href="#" class="eve-link" onmouseover="popCorp($(this), 98209548, 'Brave Little Toaster.');">Brave Little Toaster.</a>. Any member can pick them up and earn some ISK on completion.<br>
                 
                 <p><h4><strong>I can just pick up any contract?</strong></h4></p>
                 <p>
@@ -331,6 +350,23 @@
             <tr>      
               <td style='padding-left:5px; padding-right:5px; padding-top:3px; vertical-align:top;' id="popsys-content-1">&nbsp;</td>
               <td style='padding-left:5px; padding-right:5px; padding-top:3px; vertical-align:top;' id="popsys-content-2">&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+     <div class="hide" id="popcorp" style="background:white;">
+        <table style='border: 1px solid;'>
+          <thead>
+            <tr style='border-bottom: 1px solid;'>
+              <th colspan='3' style='padding-left:2px;' id="popcorp-name">&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td width='64' height='64' style='padding:2px; background-repeat:no-repeat; background-position:center;' id="popcorp-image">&nbsp;</td>
+              <td style='padding-left:5px; padding-right:5px; padding-top:3px; vertical-align:top;' id="popcorp-content-1">&nbsp;</td>
+              <td style='padding-left:5px; padding-right:5px; padding-top:3px; vertical-align:top;' id="popcorp-content-2">&nbsp;</td>
             </tr>
           </tbody>
         </table>
