@@ -1,3 +1,4 @@
+
 // ---------------------------------------------------------------
 
 function clearCookies() {
@@ -144,7 +145,7 @@ function popSys(obj, sysid, sysname, syssecurity, sysclass, stnid, stnname) {
   }  
   $('#popsys-content-2').html(cnt);
  
-   popShow(obj, '#popsys');
+	popShow(obj, '#popsys');
 }
 
 function popCorp(obj, corpid, corpname) {
@@ -184,253 +185,8 @@ function popCorp(obj, corpid, corpname) {
 }
 // ---------------------------------------------------------------
 
-$( document ).ready(function() {
-  updateCalcD();  
-});
-
-$('#calcd-input-cargo-value').on('input', function(){
-    updateCalcD();
-});
-
-$('#calcd-input-collateral-value').on('input', function(){
-    updateCalcD();
-});
-
 function isNumber(n) {
   return !isNaN(parseInt(n)) && isFinite(n);
-}
-
-function calcDError(objname, text) {
-  $('#calcd-input-' + objname + '-form').addClass('has-error');
-  $('#calcd-input-' + objname + '-error').html(text);
-  
-  $('#calcd-output-cargo-row').addClass('text-muted');
-  $('#calcd-output-collateral-row').addClass('text-muted');
-
-  $('#calcd-output-cargo-value').html('');
-  $('#calcd-output-collateral-value').html('');
-  $('#calcd-output-reward-value').html('');
-}
-
-function calcDClearError() {
-  $('#calcd-input-cargo-form').removeClass('has-error');
-  $('#calcd-input-cargo-error').html('');
-
-  $('#calcd-input-collateral-form').removeClass('has-error');
-  $('#calcd-input-collateral-error').html('');
-}
-
-function updateCalcD() {
-  calcDClearError();
-
-  var error = false;
-  var idx = 0;
-  
-  var inCargo = $('#calcd-input-cargo-value').val();
-  if (inCargo == null || inCargo.length == 0) {
-    inCargo = "0";
-  }
-  idx = inCargo.indexOf(fsep);
-  if (idx != -1) {
-    inCargo = inCargo.split(fsep).join('');  
-    $('#calcd-input-cargo-value').val(inCargo);
-  }
-  idx = inCargo.indexOf(fdec);  
-  if (idx != -1) {
-    inCargo = inCargo.substr(0, idx);    
-    $('#calcd-input-cargo-value').val(inCargo);
-  }
-  if (!isNumber(inCargo)) {
-    calcDError('cargo', 'Numbers only my friend!');
-    error = true;
-  }
-  if (inCargo > 320000) {
-    calcDError('cargo', 'This is too damn high!');
-    error = true;
-  }
-  if (inCargo < 0) {
-    calcDError('cargo', 'Negative? Impossible!');
-    error = true;
-  }
-
-  var inCollateral = $('#calcd-input-collateral-value').val();
-  if (inCollateral == null || inCollateral.length == 0) {
-    inCollateral = "0";
-  }
-  idx = inCollateral.indexOf(fsep);
-  if (idx != -1) {
-    inCollateral = inCollateral.split(fsep).join('');  
-    $('#calcd-input-collateral-value').val(inCargo);
-  }
-  idx = inCollateral.indexOf(fdec);  
-  if (idx != -1) {
-    inCollateral = inCollateral.slice(0,idx);
-    $('#calcd-input-collateral-value').val(inCollateral);
-  }
-  if (!isNumber(inCollateral)) {
-    calcDError('collateral', 'Numbers only my friend!');
-    error = true;
-  }
-  if (inCollateral > 1000000000) {
-    calcDError('collateral', 'This is too damn high!');
-    error = true;
-  }
-  if (inCollateral < 0) {
-    calcDError('collateral', 'Negative? Impossible!');
-    error = true;
-  }
- 
-  if (error) {
-    return 0;
-  }
-
-  var cargoFee = Math.max(1, Math.ceil(inCargo / 20000)) * 3000000;
-  var collateralFee = Math.max(1, Math.ceil(inCollateral / 62500000)) * 3000000;
-  var reward = 1000000 + Math.max(cargoFee, collateralFee);
-  
-  if (cargoFee > collateralFee) {
-    $('#calcd-output-cargo-row').removeClass('text-muted');
-    $('#calcd-output-collateral-row').addClass('text-muted');
-  }
-  if (collateralFee > cargoFee) {
-    $('#calcd-output-cargo-row').addClass('text-muted');
-    $('#calcd-output-collateral-row').removeClass('text-muted');  
-  }
-  if (cargoFee == collateralFee) {    
-    $('#calcd-output-cargo-row').removeClass('text-muted');
-    $('#calcd-output-collateral-row').addClass('text-muted');
-  } 
-  
-  $('#calcd-output-cargo-value').html(formatISK(cargoFee) + ' ISK');
-  $('#calcd-output-collateral-value').html(formatISK(collateralFee) + ' ISK');
-  $('#calcd-output-reward-value').html(formatISK(reward) + ' ISK');
-  
-  return reward;
-}
-// ---------------------------------------------------------------
-
-$( document ).ready(function() {
-  updateCalc();  
-});
-
-$('#calc-input-cargo-value').on('input', function(){
-    updateCalc();
-});
-
-$('#calc-input-collateral-value').on('input', function(){
-    updateCalc();
-});
-
-function isNumber(n) {
-  return !isNaN(parseInt(n)) && isFinite(n);
-}
-
-function calcError(objname, text) {
-  $('#calc-input-' + objname + '-form').addClass('has-error');
-  $('#calc-input-' + objname + '-error').html(text);
-  
-  $('#calc-output-cargo-row').addClass('text-muted');
-  $('#calc-output-collateral-row').addClass('text-muted');
-
-  $('#calc-output-cargo-value').html('');
-  $('#calc-output-collateral-value').html('');
-  $('#calc-output-reward-value').html('');
-}
-
-function calcClearError() {
-  $('#calc-input-cargo-form').removeClass('has-error');
-  $('#calc-input-cargo-error').html('');
-
-  $('#calc-input-collateral-form').removeClass('has-error');
-  $('#calc-input-collateral-error').html('');
-}
-
-function updateCalc() {
-  calcClearError();
-
-  var error = false;
-  var idx = 0;
-  
-  var inCargo = $('#calc-input-cargo-value').val();
-  if (inCargo == null || inCargo.length == 0) {
-    inCargo = "0";
-  }
-  idx = inCargo.indexOf(fsep);
-  if (idx != -1) {
-    inCargo = inCargo.split(fsep).join('');  
-    $('#calc-input-cargo-value').val(inCargo);
-  }
-  idx = inCargo.indexOf(fdec);  
-  if (idx != -1) {
-    inCargo = inCargo.substr(0, idx);    
-    $('#calc-input-cargo-value').val(inCargo);
-  }
-  if (!isNumber(inCargo)) {
-    calcError('cargo', 'Numbers only my friend!');
-    error = true;
-  }
-  if (inCargo > 320000) {
-    calcError('cargo', 'This is too damn high!');
-    error = true;
-  }
-  if (inCargo < 0) {
-    calcError('cargo', 'Negative? Impossible!');
-    error = true;
-  }
-
-  var inCollateral = $('#calc-input-collateral-value').val();
-  if (inCollateral == null || inCollateral.length == 0) {
-    inCollateral = "0";
-  }
-  idx = inCollateral.indexOf(fsep);
-  if (idx != -1) {
-    inCollateral = inCollateral.split(fsep).join('');  
-    $('#calc-input-collateral-value').val(inCargo);
-  }
-  idx = inCollateral.indexOf(fdec);  
-  if (idx != -1) {
-    inCollateral = inCollateral.slice(0,idx);
-    $('#calc-input-collateral-value').val(inCollateral);
-  }
-  if (!isNumber(inCollateral)) {
-    calcError('collateral', 'Numbers only my friend!');
-    error = true;
-  }
-  if (inCollateral > 1000000000) {
-    calcError('collateral', 'This is too damn high!');
-    error = true;
-  }
-  if (inCollateral < 0) {
-    calcError('collateral', 'Negative? Impossible!');
-    error = true;
-  }
- 
-  if (error) {
-    return 0;
-  }
-
-  var cargoFee = Math.max(1, Math.ceil(inCargo / 20000)) * 1500000;
-  var collateralFee = Math.max(1, Math.ceil(inCollateral / 62500000)) * 1500000;
-  var reward = 1000000 + Math.max(cargoFee, collateralFee);
-  
-  if (cargoFee > collateralFee) {
-    $('#calc-output-cargo-row').removeClass('text-muted');
-    $('#calc-output-collateral-row').addClass('text-muted');
-  }
-  if (collateralFee > cargoFee) {
-    $('#calc-output-cargo-row').addClass('text-muted');
-    $('#calc-output-collateral-row').removeClass('text-muted');  
-  }
-  if (cargoFee == collateralFee) {    
-    $('#calc-output-cargo-row').removeClass('text-muted');
-    $('#calc-output-collateral-row').addClass('text-muted');
-  } 
-  
-  $('#calc-output-cargo-value').html(formatISK(cargoFee) + ' ISK');
-  $('#calc-output-collateral-value').html(formatISK(collateralFee) + ' ISK');
-  $('#calc-output-reward-value').html(formatISK(reward) + ' ISK');
-  
-  return reward;
 }
 
 // ---------------------------------------------------------------
@@ -477,8 +233,11 @@ function updateNumberformat() {
     }
   });
   
-  updateCalc();
-	updateCalcD();
+	try {
+	  calcNow();
+	} catch (err) {
+	}
+
 }
 
 function toggleNumberformat() {

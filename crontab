@@ -1,0 +1,3 @@
+# Regenerate station list every 3 hours
+23 */03 * * * /path/to/bravecollective-freight/evedata/generate.py /path/to/bravecollective-freight/webroot/evedata.json
+

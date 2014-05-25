@@ -9,9 +9,9 @@
     <meta name="author" content="kiu Nakamura">         
     <link rel="shortcut icon" href="favicon.png">         
     <title>BRAVE Freight</title>         
-    <link href="dist/css/bootstrap.css" rel="stylesheet">         
-    <link href="starter-template.css" rel="stylesheet">         
-    <link href="eve.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">         
+    <link href="css/starter-template.css" rel="stylesheet">         
+    <link href="css/eve.css" rel="stylesheet">
   </head>     
 
   <body>
@@ -68,6 +68,7 @@
       <div class="starter-template">
         <h1>Frequently Asked Questions</h1>
         Freighting is soo confusing!
+				<h4 class="text-danger">Do not contract <strong>assembled</strong> containers or ships</h4>
       </div>   
 <!-- Lead -->
 
@@ -75,9 +76,11 @@
       <div class="container">
       	<div class="alert alert-success fade in">
         	<h4>
-						<b>PSA: Brave Little Toaster. resurrected!</b><br>
-						All courier contracts need to be assigned to the <b><a href="#" class="eve-link" onmouseover="popCorp($(this), 98209548, 'Brave Little Toaster.');">Brave Little Toaster.</a></b> corporation.
-
+						<b><u>News</u></b>
+						<br>
+						<b>24.05.2014</b>	Rate calculation for Jump Freighters revamped to support null sec operation.
+						<br>
+						<b>18.05.2014</b>	All courier contracts need to be assigned to the <b><a href="#" class="eve-link" onmouseover="popCorp($(this), 98209548, 'Brave Little Toaster.');">Brave Little Toaster.</a></b> corporation.
 					</h4>
       	</div>
       </div>
@@ -118,7 +121,7 @@
                     <li>Reward: <a href="index.html">Fixed rate</a> or <a href="jf.html">calculated</a></li>
                     <li>Collateral: See below</li>
                     <li>Expiration: See <a href="index.html">overview</a></li>
-                    <li>Days to complete: 1</li>
+                    <li>Days to complete: See <a href="index.html">overview</a></li>
                     <li class="text-muted">Click <em>next</em></li>
                     <li>Double check contract details</li>
                     <li class="text-muted">Click <em>finish</em></li>
@@ -150,7 +153,7 @@
 
                 <p><h4><strong>Anything else I should know?</strong></h4></p>
                 <p>
-                  <span class="text-danger"><strong>Do not contract unpackaged containers or ships</strong></span>, they mess up sub-contracting and make things complicated.<br>                  
+                  <span class="text-danger"><strong>Do not contract assembled containers or ships</strong></span>, they mess up sub-contracting and make things complicated.<br>                  
                   Do not contract <a href="https://wiki.eveonline.com/en/wiki/Contraband">illegal goods</a> (e.g. drugs), they can get the freighter pilot in trouble.<br> 
                 </p>
 
@@ -390,10 +393,11 @@
       </div>
 <!-- Clipboard -->
           
-      <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>      
-      <script src="dist/js/bootstrap.min.js"></script>
-      <script src="dist/js/jquery.cookie.js"></script>
-      <script src="eve.js"></script>
+      <script src="js/jquery-1.10.2.min.js"></script> 
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/jquery.cookie.js"></script>
+
+      <script src="js/eve.js"></script>
 
   </body>
 

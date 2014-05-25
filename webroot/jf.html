@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">     
+
+  <head>         
+    <meta charset="utf-8">         
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">         
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">         
+    <meta name="description" content="BRAVE Freight">         
+    <meta name="author" content="kiu Nakamura">         
+    <link rel="shortcut icon" href="favicon.png">         
+    <title>BRAVE Freight</title>         
+    <link href="css/bootstrap.min.css" rel="stylesheet">         
+    <link href="css/starter-template.css" rel="stylesheet">         
+    <link href="css/eve.css" rel="stylesheet">
+    <link href="css/typeahead.css" rel="stylesheet">
+  </head>     
+
+  <body>
+ 
+<!-- Navigation -->
+     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><img src='img/brave.png'></a>
+        </div>
+        <div class="collapse navbar-collapse pull-right">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Overview</a></li>
+            <li class="active"><a href="jf.html">Jump Freighter</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src='img/settings.png'><b class="caret"></b></a>
+              <ul class="dropdown-menu pull-right">
+                <li class="dropdown-header">Helper functions</li>
+                <li><a href="#" onclick="toggleNumberformat();">Toggle Numberformat</a></li>
+                <li><a href="#" onclick="clearCookies();location.reload();">Clear all cookies</a></li>                
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+<!-- Navigation -->
+  
+<!-- Alerts -->
+      <div class="alert alert-info hide fade" id="alert-use-igb">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true" onclick="$.cookie('bf-alert-igb', '1', {expires: 3650});">&times;</button>
+        Tip: Using the <strong>in-game browser</strong> enables additional convenience features
+      </div>
+
+      <div class="alert alert-info hide fade" id="alert-not-trusted">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true" onclick="$.cookie('bf-alert-not-trusted', '1', {expires: 3650})">&times;</button>        
+        <p>
+          Tip: <strong>Trusting this site</strong> enables additional convenience features<br>        
+          <small>Please reload this page once after granting trust</small>
+        </p>
+        <br>
+        <button type="button" class="btn btn-danger" onclick="CCPEVE.requestTrust('http://freight.braveineve.comcollective.net/*');">Trust this site</button>        
+      </div>
+<!-- Alerts -->
+
+<!-- Lead -->
+      <div class="starter-template">
+        <h1>Jump Freighter Calculator</h1>                 
+        <p>
+					Jump freighter rewards depend on the route, cargo size and chosen collateral<br>
+        	Use the calculator below and checkout the <a href="faq.html">FAQ</a>
+				</p>
+				<h4 class="text-danger">Do not contract <strong>assembled</strong> containers or ships</h4>
+      </div>   
+<!-- Lead --> 
+
+<!-- Alerts -->
+      <div class="container">
+      	<div class="alert alert-success fade in">
+        	<h4>
+						<b><u>News</u></b>
+						<br>
+						<b>24.05.2014</b>	Rate calculation for Jump Freighters revamped to support null sec operation.
+						<br>
+						<b>18.05.2014</b>	All courier contracts need to be assigned to the <b><a href="#" class="eve-link" onmouseover="popCorp($(this), 98209548, 'Brave Little Toaster.');">Brave Little Toaster.</a></b> corporation. See <a href="faq.html">FAQ</a> for a step-by-step guide.
+					</h4>
+      	</div>
+      </div>
+<!-- Alerts -->
+
+<!-- Flexible Rates -->
+      <div class="container">
+        <table class="table table-striped">                      
+          <thead>                          
+            <tr>                              
+              <th>Type</th>                              
+              <th class="text-right">Max Cargo</th>                              
+              <th class="text-right">Max Collateral</th>
+              <th class="text-right">Expire</th>   
+              <th class="text-right">Complete</th>   
+            </tr>                      
+          </thead>                      
+
+          <tbody>                          
+
+             <tr>
+              <td>Jump Freighter</td>
+              <td class="text-right">320<span id="fsep"></span>000 m&sup3;</td>
+              <td class="text-right">3<span id="fsep"></span>000M ISK</td>
+              <td class="text-right">7 days</td>
+              <td class="text-right">3 days</td>
+            </tr>
+
+          </tbody>                  
+        </table>  
+      </div>      
+<!-- Flexible Rates -->
+
+<br>
+
+<!-- Calculate -->
+			
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title"><strong>Contract</strong></h3>
+              </div>
+              <div class="panel-body">
+                <p>
+                  <label>From&nbsp;&nbsp;<a href="#" class="small" onmouseover="popStations($(this), hubs, 'calc-input-from-value');">[Preferred Hubs]</a> <span class="text-danger small" id="calc-input-from-error"></span></label>
+                  <div class="input-group form-control" id="calc-input-from-form" style="padding: 0; border: none;">   
+                    <input type="text" class="form-control text-right typeahead" placeholder="Enter name or select from list" id="calc-input-from-value">          
+                  </div>
+                </p>
+                <p>
+                  <label>To&nbsp;&nbsp;<a href="#" class="small" onmouseover="popStations($(this), hubs, 'calc-input-to-value');">[Preferred Hubs]</a>&nbsp;&nbsp;<a href="#" class="small" onmouseover="popStations($(this), exports, 'calc-input-to-value');">[Export]</a> <span class="text-danger small" id="calc-input-to-error"></span></label>
+                  <div class="input-group form-control" id="calc-input-to-form" style="padding: 0; border: none;">   
+                    <input type="text" class="form-control text-right typeahead" placeholder="Enter name or select from list" id="calc-input-to-value">          
+                  </div>
+                </p>
+
+                <p>
+                  <label>Cargo size <span class="text-muted">(m&sup3;)</span> <span class="text-danger small" id="calc-input-cargo-error"></span></label>
+                  <div class="input-group" id="calc-input-cargo-form">   
+                    <input type="text" class="form-control text-right" placeholder="Cargo size" id="calc-input-cargo-value">          
+                    <span class="input-group-addon"><span id="fdec"></span>00</span>
+                  </div>
+                </p>
+                <p>
+                  <label>Collateral <span class="text-muted">(ISK)</span> <span class="text-danger small" id="calc-input-collateral-error"></span></label>
+                  <div class="input-group" id="calc-input-collateral-form">
+                    <input type="text" class="form-control text-right" placeholder="Collateral" id="calc-input-collateral-value">
+                    <span class="input-group-addon"><span id="fdec"></span>00</span>
+                  </div>
+                </p>
+              </div>
+            </div>
+          </div>
+   
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+									<strong>Invoice</strong>
+
+                  <label data-html="true" data-original-title="<b>Fees</b>" class="popover-reward text-info" data-toggle="popover" data-content="
+                    <span>
+											<p>The <b>Setup fee</b> is a constant value applied to all contracts.</p>
+											<p>The <b>Freight fee</b> depends on the number of midpoints (jumps) required to fulfil the contract and gets modified based on cargo size and collateral value.</p>
+											<p>The <b>Freight export discount</b> is applicable to contracts <i>exporting</i> to high-sec.</p>
+											<p>The <b>Non-hub penalty</b> is due for any station not being listed as a <i>preferred hub</i>.</p>
+                    </span>">[?]</label>
+								</h3>
+              </div>
+              <div class="panel-body">
+
+                <p id="calc-output-setup-row">Setup fee <span class="pull-right" id="calc-output-setup-value"></span></p>
+                <p id="calc-output-freight-row">Freight fee <span class="pull-right"><span class="text-muted" id="calc-output-freight-info"></span>&nbsp;&nbsp;<span id="calc-output-freight-value"></span></p>
+                <p id="calc-output-export-row">Freight export discount <span class="pull-right" id="calc-output-export-value"></span></p>
+                <p id="calc-output-nonhub-row">Non-hub penalty <span class="pull-right" id="calc-output-nonhub-value"></span></p>
+                <hr>
+                <p id="calc-output-reward-row">
+									<b>Reward</b>
+									<a href="#" class="pull-right" onclick="$('#clipboard').modal('show');$('#clipboard-content').val(calcNow()).select();">
+                    <strong id="calc-output-reward-value"></strong>
+                  </a>
+								</p>
+              </div>
+            </div>
+					<p class="pull-right" align="right"><small><u>Valid route</u><br><span id="calc-output-route-value"></span></small></p>
+          </div>
+
+        </div>
+      </div>
+<!-- Calculate -->
+
+<!-- Footer -->
+    <div id="footer">
+      <div class="container">        
+        <p class="small text-muted pull-right text-right">        
+          Brought to you by <a href="#" class="eve-link" onmouseover="popChar($(this), 92938653, 'kiu Nakamura');">kiu Nakamura</a>
+        </p>
+      </div>
+    </div>
+<!-- Footer -->
+
+<!-- Popups -->
+     <div class="hide" id="popchar" style="background:white;">
+        <table style='border: 1px solid;'>
+          <thead>
+            <tr style='border-bottom: 1px solid;'>
+              <th colspan='3' style='padding-left:2px;' id="popchar-name">&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td width='64' height='64' background='img/loaderb32.gif' style='padding:2px; background-repeat:no-repeat; background-position:center;' id="popchar-image">&nbsp;</td>
+              <td style='padding-left:5px; padding-right:5px; padding-top:3px; vertical-align:top;' id="popchar-content-1">&nbsp;</td>
+              <td style='padding-left:5px; padding-right:5px; padding-top:3px; vertical-align:top;' id="popchar-content-2">&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="hide" id="popsys" style="background:white;">
+        <table style='border: 1px solid;'>
+          <thead>
+            <tr style='border-bottom: 1px solid;'>
+              <th colspan='2' style='padding-left:2px;' id="popsys-name">&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>      
+              <td style='padding-left:5px; padding-right:5px; padding-top:3px; vertical-align:top;' id="popsys-content-1">&nbsp;</td>
+              <td style='padding-left:5px; padding-right:5px; padding-top:3px; vertical-align:top;' id="popsys-content-2">&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+     <div class="hide" id="popcorp" style="background:white;">
+        <table style='border: 1px solid;'>
+          <thead>
+            <tr style='border-bottom: 1px solid;'>
+              <th colspan='3' style='padding-left:2px;' id="popcorp-name">&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td width='64' height='64' style='padding:2px; background-repeat:no-repeat; background-position:center;' id="popcorp-image">&nbsp;</td>
+              <td style='padding-left:5px; padding-right:5px; padding-top:3px; vertical-align:top;' id="popcorp-content-1">&nbsp;</td>
+              <td style='padding-left:5px; padding-right:5px; padding-top:3px; vertical-align:top;' id="popcorp-content-2">&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+     <div class="hide" id="popstations" style="background:white;">
+        <table style='border: 1px solid;'>
+          <thead>
+            <tr style='border-bottom: 1px solid;'>
+              <th style='padding-left:2px;'>Stations</th>
+            </tr>
+          </thead>
+          <tbody id="popstations-content">           
+          </tbody>
+        </table>
+      </div>
+<!-- Popups -->
+
+<!-- Clipboard -->
+      <div class="modal" id="clipboard" tabindex="-1" role="dialog" aria-labelledby="clipboardLabel" aria-hidden="true" onkeydown="if (event.keyCode == 13) $('#clipboard').modal('hide');">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="clipboardLabel">Copy to clipboard: CTRL-C, Enter</h4>
+            </div>
+            <div class="modal-body">
+              <input type="text" class="form-control text-right" id="clipboard-content">      
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- Clipboard -->
+
+      <script src="js/jquery-1.10.2.min.js"></script> 
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/jquery.cookie.js"></script>
+
+      <script src="js/typeahead.bundle.js"></script>
+	<script src="js/handlebars-v1.3.0.js"></script>
+
+      <script src="js/eve.js"></script>
+      <script src="js/calc.js"></script>
+
+  </body>
+
+</html>
+
