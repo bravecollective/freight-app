@@ -1,4 +1,4 @@
-dokuwiki-freight
+bravecollective-freight
 ================
 
 Website: http://freight.braveineve.com
