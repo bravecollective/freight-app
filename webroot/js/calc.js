@@ -376,7 +376,7 @@ function calcNow() {
 	if (modifierExport != 1) {
 		$('#calc-output-export-row').removeClass('text-muted');
 	}
-	$('#calc-output-export-value').html(( (1 - modifierExport) * 100) + '% ISK');
+	$('#calc-output-export-value').html(( (1 - modifierExport) * 100) + '%');
 
 	$('#calc-output-reward-row').removeClass('text-muted');
 	$('#calc-output-reward-value').html(formatISK(reward) + ' ISK');
