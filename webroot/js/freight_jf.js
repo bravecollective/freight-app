@@ -1,4 +1,4 @@
-// ---------------------------------------
+// ---------------------------------------------------------------
 
 var feeSetup = 5000000;
 var feeHubPenalty = 5000000;
@@ -31,7 +31,7 @@ var exports = [
 var evedata;
 $.ajax({
 	async: false,
-	url: 'evedata.json',
+	url: 'stations.json',
 	mimeType: "application/json",
 	dataType: 'json',
 	success: function(response){
@@ -39,7 +39,7 @@ $.ajax({
   }
 });
 
-// ---------------------------------------
+// ---------------------------------------------------------------
 
 $(document).ready(function() {
 	calcNow();
@@ -66,7 +66,7 @@ $('#calc-input-collateral-value').on('focusout', function(){
 	calcInputGetValue('collateral', maxCollateral, true);
 });
 
-// ---------------------------------------
+// ---------------------------------------------------------------
 
 $("#popstations").mouseleave(function() {
   $("#popstations").removeClass('hide');
@@ -83,7 +83,7 @@ function popStations(obj, list, dest) {
 	popShow(obj, '#popstations');
 }
 
-// ---------------------------------------
+// ---------------------------------------------------------------
 
 var stationMatcher = function() {
 	return function findMatches(q, cb) {
@@ -127,7 +127,7 @@ $('#calc-input-to-form .typeahead').typeahead({
 	}
 }).on('typeahead:selected', function(obj, val){ $('#calc-input-to-value').val(val['sname']); calcNow(); });
 
-// ---------------------------------------
+// ---------------------------------------------------------------
 
 function findStation(name) {
 	if (name == null || name.length == 0) {
@@ -145,7 +145,7 @@ function findStation(name) {
 	return false;
 }
 
-// ---------------------------------------
+// ---------------------------------------------------------------
 
 function calcOutputClear() {
 	$('#calc-output-setup-row').addClass('text-muted');
@@ -177,7 +177,7 @@ function calcInputError(objname, text) {
   $('#calc-input-' + objname + '-error').html(text);
 }
 
-// ---------------------------------------
+// ---------------------------------------------------------------
 
 function calcInputGetStation(name) {
 	calcInputClear(name);
@@ -244,7 +244,7 @@ function calcInputGetValue(name, max, format) {
 	return value;
 }
 
-// ---------------------------------------
+// ---------------------------------------------------------------
 
 function calcDistance(stationFrom, stationTo) {
 	var x1 = stationFrom.x;
@@ -383,3 +383,10 @@ function calcNow() {
 
 	return reward;
 }
+
+// ---------------------------------------------------------------
+
+$('.popover-reward').popover();
+
+// ---------------------------------------------------------------
+

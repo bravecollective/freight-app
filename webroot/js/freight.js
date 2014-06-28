@@ -1,11 +1,20 @@
-
 // ---------------------------------------------------------------
 
 function clearCookies() {
   $.removeCookie('bf-alert-igb');
   $.removeCookie('bf-alert-not-trusted');
   $.removeCookie('bf-numberformat');
+  $.removeCookie('bf-alert-news');
 }
+
+// ---------------------------------------------------------------
+
+$( document ).ready(function() {
+	if ($.cookie('bf-alert-news') != $('#alert-news-expire').val()) {  
+      $('#alert-news').removeClass('hide');
+      $('#alert-news').addClass('in');
+	}
+});
 
 // ---------------------------------------------------------------
 
@@ -292,6 +301,3 @@ function copyToClipboard(text) {
 
 // ---------------------------------------------------------------
 
-$('.popover-reward').popover();
-
-// ---------------------------------------------------------------

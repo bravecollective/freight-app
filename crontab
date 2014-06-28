@@ -1,3 +1,8 @@
-# Regenerate station list every 3 hours
-23 */03 * * * /path/to/bravecollective-freight/evedata/generate.py /path/to/bravecollective-freight/webroot/evedata.json
+# Regenerate contract list every 30 minutes
+23,53	*	*	*	*	cd /path/to/bravecollective-freight/gen_contracts; ./cron.sh
+
+# Regenerate station list every 6 hours
+42	*/06 	*	*	*	cd /path/to/bravecollective-freight/gen_stations; ./cron.sh
+
+
 

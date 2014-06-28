@@ -9,11 +9,8 @@ import sys
 
 # ---------------------------------------------
 
-if (len(sys.argv) != 2):
-    print sys.argv[0] + " <outputfile>"
-    sys.exit(1)
-
 online = True
+
 db = MySQLdb.connect(host="localhost", user="root", passwd="root", db="toolkit_ruby")
 cur = db.cursor()
 
@@ -220,6 +217,6 @@ for s in all_stations:
 			add(s)
 			break
 
-f = open(sys.argv[1],'w')
+f = open("../webroot/stations.json",'w')
 json.dump(result, f)
 f.close()
