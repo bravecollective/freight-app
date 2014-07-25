@@ -98,7 +98,7 @@ json_stats = {
 	"pendingCount": str(pendingCount),
 	"progressCount": str(progressCount),
 	"completedWindowAverage": formatTime(int(completedWindowLength / completedWindowCount)),
-	"lastUpdated": datetime.datetime.utcnow().strftime("%H:%M:%S %d-%m-%Y")
+	"lastUpdated": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M")
 }
 
 f = open("../webroot/stats_current.json",'w')
