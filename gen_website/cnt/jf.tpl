@@ -78,26 +78,30 @@
 
                   <label data-html="true" data-original-title="<b>Fees</b>" class="popover-reward text-info" data-toggle="popover" data-content="
                     <span>
-											<p>The <b>Setup fee</b> is a constant value applied to all contracts.</p>
-											<p>The <b>Freight fee</b> depends on the number of midpoints (jumps) required to fulfil the contract and gets modified based on cargo size and collateral value.</p>
-											<p>The <b>Freight export discount</b> is applicable to contracts <i>exporting</i> to high-sec.</p>
-											<p>The <b>Non-hub penalty</b> is due for any station not being listed as a <i>preferred hub</i>.</p>
+			<p>The <b>Cyno fee</b> depends on the number of midpoints (jumps) required to fulfil the contract.</p>
+			<p>The <b>Distance fee</b> depends on the distance in lightyears between the required jumps.</p>
+                        <p>The <b>Modifier</b> is applied to the <i>Cyno</i> and <i>Distance fee</i> based on <i>cargo size</i>, <i>collateral value</i> and hub status.</p>
+                        <p>The <b>Freight export discount</b> is applicable to contracts <i>exporting</i> to high-sec.</p>
+                        <p>The <b>Non-hub penalty</b> is due for any station not being listed as a <i>preferred hub</i>.</p>
                     </span>">[?]</label>
 								</h3>
               </div>
               <div class="panel-body">
 
-                <p id="calc-output-setup-row">Setup fee <span class="pull-right" id="calc-output-setup-value"></span></p>
-                <p id="calc-output-freight-row">Freight fee <span class="pull-right"><span class="text-muted" id="calc-output-freight-info"></span>&nbsp;&nbsp;<span id="calc-output-freight-value"></span></p>
-                <p id="calc-output-export-row">Freight export discount <span class="pull-right" id="calc-output-export-value"></span></p>
+                <p id="calc-output-cyno-row">Cyno fee <span class="pull-right"><span class="text-muted" id="calc-output-cyno-info"></span>&nbsp;&nbsp;<span id="calc-output-cyno-value"></span></p>
+                <p id="calc-output-distance-row">Distance fee <span class="pull-right"><span class="text-muted" id="calc-output-distance-info"></span>&nbsp;&nbsp;<span id="calc-output-distance-value"></span></p>
+                <p id="calc-output-modifier-row">Modifier <span class="pull-right"><span class="text-muted" id="calc-output-modifier-info"></span>&nbsp;&nbsp;<span id="calc-output-modifier-value"></span></p>
+                <hr>
+                <p id="calc-output-freight-row">Freight fee <span class="pull-right"><span id="calc-output-freight-value"></span></p>
+                <br>
+                <p id="calc-output-export-row">Export discount <span class="pull-right" id="calc-output-export-value"></span></p>
                 <p id="calc-output-nonhub-row">Non-hub penalty <span class="pull-right" id="calc-output-nonhub-value"></span></p>
                 <hr>
                 <p id="calc-output-reward-row">
-									<b>Reward</b>
-									<a href="#" class="pull-right" onclick="$('#clipboard').modal('show');$('#clipboard-content').val(calcNow()).select();">
-                    <strong id="calc-output-reward-value"></strong>
-                  </a>
-								</p>
+		    <b>Reward</b>
+		    <a href="#" class="pull-right" onclick="$('#clipboard').modal('show');$('#clipboard-content').val(calcNow()).select();"><strong id="calc-output-reward-value"></strong></a>
+		</p>
+		<br>
               </div>
             </div>
 					<p class="pull-right" align="right"><small><u>Possible route</u><br><span id="calc-output-route-value"></span></small></p>

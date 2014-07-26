@@ -6,6 +6,8 @@
         	<h4>
 						<b><u>News</u></b>
 						<br>
+						<b>27.07.2014</b>	Adapted <a href="jf.html">flexible rates</a> due to changes introduced by Crius. Removed cyno jammed systems.
+						<br>
 						<b>27.06.2014</b>	Checkout the new <a href="stats.html">stats</a> page.
 						<br>
 						<b>24.05.2014</b>	Rate calculation for Jump Freighters revamped to support null sec operation.

@@ -1,14 +1,15 @@
 // ---------------------------------------------------------------
 
-var feeSetup = 5000000;
 var feeHubPenalty = 5000000;
-var feePerJump = 30000000;
+var feePerJump = 2000000;
+var feePerLy = 4500000;
 
 var maxCargo = 320000;
 var pivotCargo = 320000;
 var maxCollateral = 3000000000;
 var pivotCollateral = 2000000000;
-var jumpRange = 10; // ly
+// var jumpRange = 10; // JDC4 ly
+var jumpRange = 11.25; // JDC5 ly
 
 var exportDiscount = 0.5;
 
@@ -148,12 +149,20 @@ function findStation(name) {
 // ---------------------------------------------------------------
 
 function calcOutputClear() {
-	$('#calc-output-setup-row').addClass('text-muted');
-	$('#calc-output-setup-value').html('N/A');
+	$('#calc-output-distance-row').addClass('text-muted');
+	$('#calc-output-distance-value').html('N/A');
+	$('#calc-output-distance-info').html('');
+
+	$('#calc-output-cyno-row').addClass('text-muted');
+	$('#calc-output-cyno-value').html('N/A');
+	$('#calc-output-cyno-info').html('');
+
+	$('#calc-output-modifier-row').addClass('text-muted');
+	$('#calc-output-modifier-value').html('N/A');
+	$('#calc-output-modifier-info').html('');
 
 	$('#calc-output-freight-row').addClass('text-muted');
 	$('#calc-output-freight-value').html('N/A');
-	$('#calc-output-freight-info').html('');
 
 	$('#calc-output-nonhub-row').addClass('text-muted');
 	$('#calc-output-nonhub-value').html('N/A');
@@ -340,33 +349,59 @@ function calcNow() {
 		$('#calc-output-route-value').html(hops);
 	}
 
+	// -----------------
 	var nonHubs = 0;
 	nonHubs += $.inArray(stationFrom.sname, hubs) == -1 ? 1 : 0;
 	nonHubs += $.inArray(stationTo.sname, hubs) == -1 ? 1 : 0;
 
 	var modifierVolume = volume / pivotCargo;
-	if (nonHubs != 0) {
-		modifierVolume = 1;
-	}
 	var modifierCollateral = collateral / pivotCollateral;
-	var modifier = Math.max(modifierVolume, modifierCollateral);
+        var modifierHub = 0;
+	if (nonHubs != 0) {
+		modifierHub = 1;
+	}
+//	var modifier = Math.max(modifierVolume, modifierCollateral);
 
+	var modifierReason = "";
+	var modifier = 0;
+	if (modifierVolume > modifier) {
+	    modifierReason = "Cargo Size";
+	    modifier = modifierVolume;
+	}
+	if (modifierCollateral > modifier) {
+	    modifierReason = "Collateral";
+	    modifier = modifierCollateral;
+	}
+	if (modifierHub > modifier) {
+	    modifierReason = "Not a Hub";
+	    modifier = modifierHub;
+	}
+	modifier = Math.ceil(modifier * 100);
+	
+	// -----------------
 	var modifierExport = $.inArray(stationTo.sname, exports) != -1 && $.inArray(stationFrom.sname, hubs) != -1 ? exportDiscount : 1;
-
 	// -----------------
-
-	var feeFreight = Math.ceil(feePerJump * jumps * modifier);
+	var feeDistance = Math.ceil(feePerLy * distance);
+	var feeCyno = Math.ceil(feePerJump * jumps);
+	var feeFreight = Math.ceil((feeDistance  + feeCyno) * (modifier / 100));
 	var feeHub = feeHubPenalty * nonHubs;
-	var reward = Math.ceil( feeSetup + ((feeFreight + feeHub) * modifierExport) );
-
+	var reward = (feeFreight + feeHub) * modifierExport;
 	// -----------------
 
-	$('#calc-output-setup-row').removeClass('text-muted');
-	$('#calc-output-setup-value').html(formatISK(feeSetup) + ' ISK');
+	$('#calc-output-distance-row').removeClass('text-muted');
+	$('#calc-output-distance-value').html(formatISK(feeDistance) + ' ISK');
+	$('#calc-output-distance-info').html(distance + ' ly ');
+
+	$('#calc-output-cyno-row').removeClass('text-muted');
+	$('#calc-output-cyno-value').html(formatISK(feeCyno) + ' ISK');
+	$('#calc-output-cyno-info').html(jumps + ' jump(s) ');
+
+	$('#calc-output-modifier-row').removeClass('text-muted');
+	$('#calc-output-modifier-value').html(modifier + '%');
+	$('#calc-output-modifier-info').html("Pivotal: " + modifierReason + ' ');
 
 	$('#calc-output-freight-row').removeClass('text-muted');
 	$('#calc-output-freight-value').html(formatISK(feeFreight) + ' ISK');
-	$('#calc-output-freight-info').html('(' + distance + 'ly / ' + jumps + ' jump(s) / ' + Math.ceil(modifier * 100) + '% mod)');
 
 	if (nonHubs > 0) {
 		$('#calc-output-nonhub-row').removeClass('text-muted');

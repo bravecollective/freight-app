@@ -75,16 +75,32 @@
 				<h4 class="text-danger">Do not contract <strong>assembled</strong> containers or ships!</h4>
       </div>   
 <!-- Lead -->
+<!-- Alerts -->
+      <div class="container">
+      	<div class="alert alert-warning show in fade" id="alert-lto">
+        	<h4>
+						<b><u>Limited Time Offer!</u></b><br>
+						<br>
+						<b>Free jumpfreighter shipping from V-3 to GE-8</b><br>
+						While we are moving our HQ from V-3 to GE-8 we are offering free jumpfreighter shipping between those two stations.<br>
+						Please setup your contracts as usual (assign to BLT, no assembled containers or assembled ships, max 3B collateral, max 320,000 m3), but feel free to set the reward to 0 ISK.<br>
+						Tips (rewards) are highly appreciated by our JF pilots, they have a lot of work ahead...
+					</h4>
+      	</div>
+      </div>
+<!-- Alerts -->
 
 <!-- Alerts -->
       <div class="container">
       	<div class="alert alert-success hide fade" id="alert-news">
-					<input type="hidden" id="alert-news-expire" value="1403806737"/>
+					<input type="hidden" id="alert-news-expire" value="1406338558"/>
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true" onclick="$.cookie('bf-alert-news', $('#alert-news-expire').val(), {expires: 3650});">&times;</button>
         	<h4>
 						<b><u>News</u></b>
 						<br>
-						<b>27.06.2014</b>	Checkout the new <a href="stats.html">Stats</a> page.
+						<b>27.07.2014</b>	Adapted <a href="jf.html">flexible rates</a> due to changes introduced by Crius. Removed cyno jammed systems.
+						<br>
+						<b>27.06.2014</b>	Checkout the new <a href="stats.html">stats</a> page.
 						<br>
 						<b>24.05.2014</b>	Rate calculation for Jump Freighters revamped to support null sec operation.
 						<br>
@@ -174,26 +190,30 @@
 
                   <label data-html="true" data-original-title="<b>Fees</b>" class="popover-reward text-info" data-toggle="popover" data-content="
                     <span>
-											<p>The <b>Setup fee</b> is a constant value applied to all contracts.</p>
-											<p>The <b>Freight fee</b> depends on the number of midpoints (jumps) required to fulfil the contract and gets modified based on cargo size and collateral value.</p>
-											<p>The <b>Freight export discount</b> is applicable to contracts <i>exporting</i> to high-sec.</p>
-											<p>The <b>Non-hub penalty</b> is due for any station not being listed as a <i>preferred hub</i>.</p>
+			<p>The <b>Cyno fee</b> depends on the number of midpoints (jumps) required to fulfil the contract.</p>
+			<p>The <b>Distance fee</b> depends on the distance in lightyears between the required jumps.</p>
+                        <p>The <b>Modifier</b> is applied to the <i>Cyno</i> and <i>Distance fee</i> based on <i>cargo size</i>, <i>collateral value</i> and hub status.</p>
+                        <p>The <b>Freight export discount</b> is applicable to contracts <i>exporting</i> to high-sec.</p>
+                        <p>The <b>Non-hub penalty</b> is due for any station not being listed as a <i>preferred hub</i>.</p>
                     </span>">[?]</label>
 								</h3>
               </div>
               <div class="panel-body">
 
-                <p id="calc-output-setup-row">Setup fee <span class="pull-right" id="calc-output-setup-value"></span></p>
-                <p id="calc-output-freight-row">Freight fee <span class="pull-right"><span class="text-muted" id="calc-output-freight-info"></span>&nbsp;&nbsp;<span id="calc-output-freight-value"></span></p>
-                <p id="calc-output-export-row">Freight export discount <span class="pull-right" id="calc-output-export-value"></span></p>
+                <p id="calc-output-cyno-row">Cyno fee <span class="pull-right"><span class="text-muted" id="calc-output-cyno-info"></span>&nbsp;&nbsp;<span id="calc-output-cyno-value"></span></p>
+                <p id="calc-output-distance-row">Distance fee <span class="pull-right"><span class="text-muted" id="calc-output-distance-info"></span>&nbsp;&nbsp;<span id="calc-output-distance-value"></span></p>
+                <p id="calc-output-modifier-row">Modifier <span class="pull-right"><span class="text-muted" id="calc-output-modifier-info"></span>&nbsp;&nbsp;<span id="calc-output-modifier-value"></span></p>
+                <hr>
+                <p id="calc-output-freight-row">Freight fee <span class="pull-right"><span id="calc-output-freight-value"></span></p>
+                <br>
+                <p id="calc-output-export-row">Export discount <span class="pull-right" id="calc-output-export-value"></span></p>
                 <p id="calc-output-nonhub-row">Non-hub penalty <span class="pull-right" id="calc-output-nonhub-value"></span></p>
                 <hr>
                 <p id="calc-output-reward-row">
-									<b>Reward</b>
-									<a href="#" class="pull-right" onclick="$('#clipboard').modal('show');$('#clipboard-content').val(calcNow()).select();">
-                    <strong id="calc-output-reward-value"></strong>
-                  </a>
-								</p>
+		    <b>Reward</b>
+		    <a href="#" class="pull-right" onclick="$('#clipboard').modal('show');$('#clipboard-content').val(calcNow()).select();"><strong id="calc-output-reward-value"></strong></a>
+		</p>
+		<br>
               </div>
             </div>
 					<p class="pull-right" align="right"><small><u>Possible route</u><br><span id="calc-output-route-value"></span></small></p>
