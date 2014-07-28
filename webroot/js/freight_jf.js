@@ -385,7 +385,7 @@ function calcNow() {
 	var feeCyno = Math.ceil(feePerJump * jumps);
 	var feeFreight = Math.ceil((feeDistance  + feeCyno) * (modifier / 100));
 	var feeHub = feeHubPenalty * nonHubs;
-	var reward = (feeFreight + feeHub) * modifierExport;
+	var reward = Math.ceil((feeFreight + feeHub) * modifierExport);
 	// -----------------
 
 	$('#calc-output-distance-row').removeClass('text-muted');
