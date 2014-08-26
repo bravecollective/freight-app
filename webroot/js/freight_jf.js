@@ -20,8 +20,7 @@ var hubs = [
 	'GJ0-OJ IV',
 	'QETZ-W I',
 	'Mendori IX-9 IAF',
-	'Rahadalon VIII-2 MABO',
-	'Sendaya V CB'
+	'Rahadalon VIII-2 MABO'
 ];
 hubs.sort();
 
