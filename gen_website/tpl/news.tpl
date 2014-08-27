@@ -6,6 +6,8 @@
         	<h4>
 						<b><u>News</u></b>
 						<br>
+						<b>27.08.2014</b>	Sendaya is no longer a hub (but still a regular station) and support for Blockade Runners is removed.
+						<br>
 						<b>27.07.2014</b>	Adapted <a href="jf.html">flexible rates</a> due to changes introduced by Crius. Removed cyno jammed systems.
 						<br>
 						<b>27.06.2014</b>	Checkout the new <a href="stats.html">stats</a> page.

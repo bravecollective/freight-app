@@ -89,49 +89,6 @@
               </td>
             </tr>
 
-            <tr>
-              <td>
-              	<span class="eve-system-10" onmouseover="popSys($(this), 30002187, 'Amarr VIII', '1.0', 'eve-system-10', 60008494, 'Amarr VIII');">Amarr VIII</span>,
-                <span class="eve-system-09" onmouseover="popSys($(this), 30002510, 'Rens', '0.9', 'eve-system-09', 60004588, 'Rens VI-8');">Rens VI-8</span>
-              </td>                                            
-              <td><span style="color:black;">&#8596;</span></td>
-              <td><div class="eve-system-03" onmouseover="popSys($(this), 30000015, 'Sendaya', '0.3', 'eve-system-03', 60012301, 'Sendaya V');">Sendaya V</div></td>
-              <td>Blockade Runner</td>
-              <td class="text-right">9<span id="fsep"></span>000 m&sup3;</td>
-              <td class="text-right">1<span id="fsep"></span>000M ISK</td>
-              <td class="text-right">7 days</td>
-              <td class="text-right">3 days</td>
-              <td class="text-right"><a href="#" onclick="$('#clipboard').modal('show');$('#clipboard-content').val('5000000').select();">5M ISK</a></td>                
-            </tr>            
-
-            <tr>
-              <td>
-              	<span class="eve-system-05" onmouseover="popSys($(this), 30002986, 'Mendori', '0.5', 'eve-system-05', 60006511, 'Mendori IX-9');">Mendori IX-9</span>
-              </td>                                            
-              <td><span style="color:black;">&#8596;</span></td>
-              <td><span class="eve-system-03" onmouseover="popSys($(this), 30000015, 'Sendaya', '0.3', 'eve-system-03', 60012301, 'Sendaya V');">Sendaya V</span></td>
-              <td>Blockade Runner</td>
-              <td class="text-right">9<span id="fsep"></span>000 m&sup3;</td>
-              <td class="text-right">1<span id="fsep"></span>000M ISK</td>
-              <td class="text-right">7 days</td>
-              <td class="text-right">3 days</td>
-              <td class="text-right"><a href="#" onclick="$('#clipboard').modal('show');$('#clipboard-content').val('5000000').select();">5M ISK</a></td>                
-            </tr>            
-
-            <tr>
-              <td>
-						<span class="eve-system-09" onmouseover="popSys($(this), 30000142, 'Jita', '0.9', 'eve-system-09', 60003466, 'Jita IV-4');">Jita IV-4</span>
-              </td>                                            
-              <td><span style="color:black;">&#8596;</span></td>
-              <td><span class="eve-system-03" onmouseover="popSys($(this), 30000015, 'Sendaya', '0.3', 'eve-system-03', 60012301, 'Sendaya V');">Sendaya V</span></td>
-              <td>Blockade Runner</td>
-              <td class="text-right">9<span id="fsep"></span>000 m&sup3;</td>
-              <td class="text-right">1<span id="fsep"></span>000M ISK</td>
-              <td class="text-right">7 days</td>
-              <td class="text-right">3 days</td>
-              <td class="text-right"><a href="#" onclick="$('#clipboard').modal('show');$('#clipboard-content').val('10000000').select();">10M ISK</a></td>                
-            </tr>            
-
           </tbody>                  
         </table>  
       </div>      
