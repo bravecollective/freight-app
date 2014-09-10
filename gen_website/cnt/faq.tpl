@@ -89,21 +89,7 @@
                 
                 <p><h4><strong>What about my blockade runner?</strong></h4></p>
                 <p>
-                    <p><em>Blockade runners</em> can be blued to <em>BRAVE</em>.</p>
-										<p>You will be able to dock at any <em>BRAVE</em> station. The stations of <em>HERO</em> partners are off limits though.</p>
-                    <p>1. Create an <a href="http://support.eveonline.com/api/Key/CreatePredefined/58720256">API Key</a> of your <em>BRAVE</em>, <em>blockade runner</em> and <em>contract</em> character. All keys need CharacterInfo (public), AccountStatus (private) and CharacterInfo (private).</p>
-                    <p>2. Send a mail to <a href="#" class="eve-link" onmouseover="popChar($(this), 93801020, 'Alliance Crow');">Alliance Crow</a> with the following information:</p>
-                    <ul>
-                    <li> Link to your <em>BRAVE</em> character
-                    <li> Key ID and Verification Code of your <em>BRAVE</em> character
-                    <li> Link to your <em>blockade runner</em> character
-                    <li> Key ID and Verification Code of your <em>blockade runner</em> character
-                    <li> Link to your <em>contract</em> character
-                    <li> Key ID and Verification Code of your <em>contract</em> character
-                    <li> List the <em>blockade runner</em> hulls you are able to fly
-                    </ul>
-                    <p>3. Apply to <a href="#" class="eve-link" onmouseover="popCorp($(this), 98209548, 'Brave Little Toaster.');">Brave Little Toaster.</a> with your <em>contract</em> character.</p>
-                    <p>Wait till your applications of your <em>contract</em> character is completed. Double check blue <em>BRAVE</em> standing of your <em>blockade runner</em> character once everything is completed!</p>
+                    <p>Sorry, but we no longer accept <em>Blockade Runners</em>.</p>
                 </p>
 
                 <p><h4><strong>What about my jump freighter?</strong></h4></p>
