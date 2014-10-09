@@ -10,7 +10,7 @@ import urllib2
 
 # ---------------------------------------------
 
-online = False
+online = True
 
 db = MySQLdb.connect(host="localhost", user="root", passwd="root", db="toolkit_ruby")
 cur = db.cursor()
@@ -196,7 +196,7 @@ for res in cur.fetchall() :
 incursion_constellations = []
 
 if (online):
-	inc = urllib2.urlopen('https://public-crest.eveonline.com/incursions')
+	inc = urllib2.urlopen('https://public-crest.eveonline.com/incursions/')
 else:
 	inc = file(r'incursions.json', 'r')
 
@@ -248,8 +248,6 @@ for s in all_stations:
 		if (f['inc_null_other'] == '1' and s['sectype'] == 'null_other'):
 			add(s)
 			break
-
-# ---------------------------------------------
 
 # ---------------------------------------------
 
