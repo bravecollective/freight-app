@@ -6,10 +6,11 @@ import json
 import operator
 from lxml import etree
 import sys
+import urllib2
 
 # ---------------------------------------------
 
-online = True
+online = False
 
 db = MySQLdb.connect(host="localhost", user="root", passwd="root", db="toolkit_ruby")
 cur = db.cursor()
@@ -61,7 +62,7 @@ if (online):
 	req = requests.get('https://api.eveonline.com/eve/AllianceList.xml.aspx')
 	root = etree.fromstring(req.text.encode("utf-8"))
 else:
-	root = etree.parse(open('AllianceList.xml.aspx.xml','r'))
+	root = etree.parse(open('AllianceList.xml.aspx','r'))
 
 rows = root.xpath("/eveapi/result/rowset/row")
 for row in rows:
@@ -82,7 +83,7 @@ if (online):
 	req = requests.get('https://api.eveonline.com/map/Sovereignty.xml.aspx')
 	root = etree.fromstring(req.text.encode("utf-8"))
 else:
-	root = etree.parse(open('Sovereignty.xml.aspx.xml','r'))
+	root = etree.parse(open('Sovereignty.xml.aspx','r'))
 
 rows = root.xpath("/eveapi/result/rowset/row")
 for row in rows:
@@ -125,7 +126,7 @@ if (online):
 	req = requests.get('https://api.eveonline.com/eve/ConquerableStationList.xml.aspx')
 	root = etree.fromstring(req.text.encode("utf-8"))
 else:
-	root = etree.parse(open('ConquerableStationList.xml.aspx.xml','r'))
+	root = etree.parse(open('ConquerableStationList.xml.aspx','r'))
 
 rows = root.xpath("/eveapi/result/rowset/row")
 for row in rows:
@@ -192,10 +193,33 @@ for res in cur.fetchall() :
 
 # ---------------------------------------------
 
+incursion_constellations = []
+
+if (online):
+	inc = urllib2.urlopen('https://public-crest.eveonline.com/incursions')
+else:
+	inc = file(r'incursions.json', 'r')
+
+jinc = json.load(inc)
+
+for j in jinc['items']:
+    incursion_constellations.append(str(j['constellation']['id_str']))
+
+
+for s in all_stations:
+    cur.execute("SELECT constellationID FROM mapSolarSystems WHERE solarSystemID = " + str(s['ssid']))
+    res = cur.fetchone()
+    cid = str(res[0])
+    s['incursion'] = cid in incursion_constellations
+
+# ---------------------------------------------
+
 all_stations.sort(key=operator.itemgetter('snameshort'))
 
+# ---------------------------------------------
+
 def add(row):
-	result.append({ 'sname':row['snameshort'], 'rname':row['rname'], 'aname':row['aname'], 'sectype':row['sectype'], 'x':row['x'], 'y':row['y'], 'z':row['z']})
+	result.append({ 'sname':row['snameshort'], 'rname':row['rname'], 'aname':row['aname'], 'sectype':row['sectype'], 'x':row['x'], 'y':row['y'], 'z':row['z'], 'incursion':row['incursion']})
 
 for s in all_stations:
 	if s['sid'] in remove_station:
@@ -224,6 +248,10 @@ for s in all_stations:
 		if (f['inc_null_other'] == '1' and s['sectype'] == 'null_other'):
 			add(s)
 			break
+
+# ---------------------------------------------
+
+# ---------------------------------------------
 
 f = open("../webroot/stations.json",'w')
 json.dump(result, f)

@@ -41,12 +41,14 @@
               <div class="panel-body">
                 <p>
                   <label>From&nbsp;&nbsp;<a href="#" class="small" onmouseover="popStations($(this), hubs, 'calc-input-from-value');">[Preferred Hubs]</a> <span class="text-danger small" id="calc-input-from-error"></span></label>
+                  <div id="calc-input-from-incursion" class="text-danger small hidden"><b>Warning: Active incursion in system - contracts may not be accepted!</b></div>
                   <div class="input-group form-control" id="calc-input-from-form" style="padding: 0; border: none;">   
                     <input type="text" class="form-control text-right typeahead" placeholder="Enter name or select from list" id="calc-input-from-value">          
                   </div>
                 </p>
                 <p>
                   <label>To&nbsp;&nbsp;<a href="#" class="small" onmouseover="popStations($(this), hubs, 'calc-input-to-value');">[Preferred Hubs]</a>&nbsp;&nbsp;<a href="#" class="small" onmouseover="popStations($(this), exports, 'calc-input-to-value');">[Export]</a> <span class="text-danger small" id="calc-input-to-error"></span></label>
+                  <div id="calc-input-to-incursion" class="text-danger small hidden"><b>Warning: Active incursion in system - contracts may not be accepted!</b></div>
                   <div class="input-group form-control" id="calc-input-to-form" style="padding: 0; border: none;">   
                     <input type="text" class="form-control text-right typeahead" placeholder="Enter name or select from list" id="calc-input-to-value">          
                   </div>

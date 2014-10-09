@@ -178,6 +178,7 @@ function calcOutputClear() {
 function calcInputClear(objname) {
   $('#calc-input-' + objname + '-form').removeClass('has-error');
   $('#calc-input-' + objname + '-error').html('');
+  $('#calc-input-' + objname + '-incursion').addClass('hidden');
 }
 
 function calcInputError(objname, text) {
@@ -204,6 +205,9 @@ function calcInputGetStation(name) {
 	if (station == false) {
 		calcInputError(name, 'Unknown station!');
 		return false;
+	}
+	if (station['incursion']) {
+	    $('#calc-input-' + name + '-incursion').removeClass('hidden');
 	}
 
 	return station;
