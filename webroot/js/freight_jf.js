@@ -267,7 +267,7 @@ function calcDistance(stationFrom, stationTo) {
 	var y2 = stationTo.y;
 	var z2 = stationTo.z;
 
-	return Math.ceil(Math.sqrt( Math.pow((x1-x2), 2) + Math.pow((y1-y2), 2) + Math.pow((z1-z2), 2) ) / 9460730472580800);
+	return Math.ceil(Math.sqrt( Math.pow((x1-x2), 2) + Math.pow((y1-y2), 2) + Math.pow((z1-z2), 2) ) / 9460000000000000);
 }
 
 function calcRoute(stationFrom, stationTo) {
