@@ -6,6 +6,8 @@
         	<h4>
 						<b><u>News</u></b>
 						<br>
+						<b>03.11.2014</b>	Phoebe changes: Travel distance reduced to 10ly (JDC V).
+						<br>
 						<b>09.10.2014</b>	Added incursion detection. Removed highsec support.
 						<br>
 						<b>27.08.2014</b>	Sendaya is no longer a hub (but still a regular station) and support for Blockade Runners is removed.

@@ -8,8 +8,7 @@ var maxCargo = 320000;
 var pivotCargo = 320000;
 var maxCollateral = 3000000000;
 var pivotCollateral = 2000000000;
-// var jumpRange = 10; // JDC4 ly
-var jumpRange = 11.25; // JDC5 ly
+var jumpRange = 10; // JDC5 ly
 
 var exportDiscount = 0.5;
 
