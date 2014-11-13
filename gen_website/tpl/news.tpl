@@ -6,6 +6,8 @@
         	<h4>
 						<b><u>News</u></b>
 						<br>
+						<b>13.11.2014</b>	Modified Hubs: Removed GJ0, added ZXIC and E-Y.
+						<br>
 						<b>03.11.2014</b>	Phoebe changes: Travel distance reduced to 10ly (JDC V).
 						<br>
 						<b>09.10.2014</b>	Added incursion detection. Removed highsec support.

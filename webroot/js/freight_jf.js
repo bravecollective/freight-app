@@ -16,10 +16,11 @@ var hubs = [
 	'V-3YG7 VI',
 	'GE-8JV VII',
 	'HED-GP III',
-	'GJ0-OJ IV',
 	'QETZ-W I',
 	'Mendori IX-9 IAF',
-	'Rahadalon VIII-2 MABO'
+	'Rahadalon VIII-2 MABO',
+	'ZXIC-7 IV',
+	'E-YJ8G VIII'
 ];
 hubs.sort();
 
