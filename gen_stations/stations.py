@@ -28,6 +28,7 @@ add_station.append('60012301') # Sendaya V - CONCORD Bureau
 remove_station = []
 remove_station.append('61000682'); # EX6-AO VII - The Neocortex
 remove_station.append('61000744'); # 4-07MU V - The Thalamus
+remove_station.append('61000193'); # RNF-YH XI
 
 hero_aid = []
 hero_aid.append('99003214') 	# Brave Collective
