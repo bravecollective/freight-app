@@ -29,11 +29,11 @@
                     <li class="text-muted">Click <em>next</em></li>
                     <li>Select station and items</li>
                     <li class="text-muted">Click <em>next</em></li>
-                    <li>Ship To: See stations listed in <a href="index.html">overview</a></li>
-                    <li>Reward: <a href="index.html">Fixed rate</a> or <a href="jf.html">calculated</a></li>
+                    <li>Ship To: See <a href="jf.html">Calculated</a></li>
+                    <li>Reward: See <a href="jf.html">Calculated</a></li>
                     <li>Collateral: See below</li>
-                    <li>Expiration: See <a href="index.html">overview</a></li>
-                    <li>Days to complete: See <a href="index.html">overview</a></li>
+                    <li>Expiration: 7 days</li>
+                    <li>Days to complete: 3 days</li>
                     <li class="text-muted">Click <em>next</em></li>
                     <li>Double check contract details</li>
                     <li class="text-muted">Click <em>finish</em></li>
