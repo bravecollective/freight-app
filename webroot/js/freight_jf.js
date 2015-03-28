@@ -10,7 +10,7 @@ var maxCollateral = 3000000000;
 var pivotCollateral = 2000000000;
 var jumpRange = 10; // JDC5 ly
 
-var exportDiscount = 0.5;
+var exportDiscount = 1.0;
 
 var hubs = [
 	'V-3YG7 VI',
