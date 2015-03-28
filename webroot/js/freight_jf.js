@@ -148,25 +148,25 @@ function findStation(name) {
 // ---------------------------------------------------------------
 
 function calcOutputClear() {
-	$('#calc-output-distance-row').addClass('text-muted');
+	//$('#calc-output-distance-row').addClass('text-muted');
 	$('#calc-output-distance-value').html('N/A');
 	$('#calc-output-distance-info').html('');
 
-	$('#calc-output-cyno-row').addClass('text-muted');
+	//$('#calc-output-cyno-row').addClass('text-muted');
 	$('#calc-output-cyno-value').html('N/A');
 	$('#calc-output-cyno-info').html('');
 
-	$('#calc-output-modifier-row').addClass('text-muted');
+	//$('#calc-output-modifier-row').addClass('text-muted');
 	$('#calc-output-modifier-value').html('N/A');
 	$('#calc-output-modifier-info').html('');
 
-	$('#calc-output-freight-row').addClass('text-muted');
+	//$('#calc-output-freight-row').addClass('text-muted');
 	$('#calc-output-freight-value').html('N/A');
 
-	$('#calc-output-nonhub-row').addClass('text-muted');
+	//$('#calc-output-nonhub-row').addClass('text-muted');
 	$('#calc-output-nonhub-value').html('N/A');
 
-	$('#calc-output-export-row').addClass('text-muted');
+	//$('#calc-output-export-row').addClass('text-muted');
 	$('#calc-output-export-value').html('N/A');
 
 	$('#calc-output-reward-row').addClass('text-muted');
@@ -391,28 +391,28 @@ function calcNow() {
 	var reward = Math.ceil((feeFreight + feeHub) * modifierExport);
 	// -----------------
 
-	$('#calc-output-distance-row').removeClass('text-muted');
+	//$('#calc-output-distance-row').removeClass('text-muted');
 	$('#calc-output-distance-value').html(formatISK(feeDistance) + ' ISK');
 	$('#calc-output-distance-info').html(distance + ' ly ');
 
-	$('#calc-output-cyno-row').removeClass('text-muted');
+	//$('#calc-output-cyno-row').removeClass('text-muted');
 	$('#calc-output-cyno-value').html(formatISK(feeCyno) + ' ISK');
 	$('#calc-output-cyno-info').html(jumps + ' jump(s) ');
 
-	$('#calc-output-modifier-row').removeClass('text-muted');
+	//$('#calc-output-modifier-row').removeClass('text-muted');
 	$('#calc-output-modifier-value').html(modifier + '%');
 	$('#calc-output-modifier-info').html("Pivotal: " + modifierReason + ' ');
 
-	$('#calc-output-freight-row').removeClass('text-muted');
+	//$('#calc-output-freight-row').removeClass('text-muted');
 	$('#calc-output-freight-value').html(formatISK(feeFreight) + ' ISK');
 
 	if (nonHubs > 0) {
-		$('#calc-output-nonhub-row').removeClass('text-muted');
+		//$('#calc-output-nonhub-row').removeClass('text-muted');
 	}
 	$('#calc-output-nonhub-value').html(formatISK(feeHub) + ' ISK');
 
 	if (modifierExport != 1) {
-		$('#calc-output-export-row').removeClass('text-muted');
+		//$('#calc-output-export-row').removeClass('text-muted');
 	}
 	$('#calc-output-export-value').html(( (1 - modifierExport) * 100) + '%');
 
