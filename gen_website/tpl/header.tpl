@@ -70,5 +70,11 @@
         <br>
         <button type="button" class="btn btn-danger" onclick="CCPEVE.requestTrust('http://freight.braveineve.com/*');">Trust this site</button>        
       </div>
+
+      <div class="alert alert-danger fade in">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <b>WE ARE DEPLOYING \o/</b><br>
+	<b>Read more about freighting options in regards to the deployment on the <a href="index.html">main</a> page.</b>
+      </div>
 <!-- Alerts -->
 

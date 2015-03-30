@@ -85,6 +85,7 @@
                         <p>The <b>Modifier</b> is applied to the <i>Cyno</i> and <i>Distance fee</i> based on <i>cargo size</i>, <i>collateral value</i> and hub status.</p>
                         <p>The <b>Freight export discount</b> is applicable to contracts <i>exporting</i> to high-sec.</p>
                         <p>The <b>Non-hub penalty</b> is due for any station not being listed as a <i>preferred hub</i>.</p>
+                        <p>The <b>Contract Reward</b> is what you have to use as <i>reward</i> in the contract.</p>
                     </span>">[?]</label>
 								</h3>
               </div>
@@ -100,7 +101,7 @@
                 <p id="calc-output-nonhub-row">Non-hub penalty <span class="pull-right" id="calc-output-nonhub-value"></span></p>
                 <hr>
                 <p id="calc-output-reward-row">
-		    <b>Reward</b>
+		    <b>Contract Reward</b>
 		    <a href="#" class="pull-right" onclick="$('#clipboard').modal('show');$('#clipboard-content').val(calcNow()).select();"><strong id="calc-output-reward-value"></strong></a>
 		</p>
 		<br>

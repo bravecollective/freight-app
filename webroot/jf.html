@@ -66,6 +66,12 @@
         <br>
         <button type="button" class="btn btn-danger" onclick="CCPEVE.requestTrust('http://freight.braveineve.com/*');">Trust this site</button>        
       </div>
+
+      <div class="alert alert-danger fade in">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <b>WE ARE DEPLOYING \o/</b><br>
+	<b>Read more about freighting options in regards to the deployment on the <a href="index.html">main</a> page.</b>
+      </div>
 <!-- Alerts -->
 
 <!-- Lead -->
@@ -78,10 +84,12 @@
 <!-- Alerts -->
       <div class="container">
       	<div class="alert alert-success hide fade" id="alert-news">
-					<input type="hidden" id="alert-news-expire" value="1415868577"/>
+					<input type="hidden" id="alert-news-expire" value="1427681185"/>
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true" onclick="$.cookie('bf-alert-news', $('#alert-news-expire').val(), {expires: 3650});">&times;</button>
         	<h4>
 						<b><u>News</u></b>
+						<br>
+						<b>30.03.2014</b>	We are deploying! Leva and Sakht added.
 						<br>
 						<b>13.11.2014</b>	Modified Hubs: Removed GJ0, added ZXIC and E-Y.
 						<br>
@@ -190,19 +198,20 @@
                         <p>The <b>Modifier</b> is applied to the <i>Cyno</i> and <i>Distance fee</i> based on <i>cargo size</i>, <i>collateral value</i> and hub status.</p>
                         <p>The <b>Freight export discount</b> is applicable to contracts <i>exporting</i> to high-sec.</p>
                         <p>The <b>Non-hub penalty</b> is due for any station not being listed as a <i>preferred hub</i>.</p>
+                        <p>The <b>Contract Reward</b> is what you have to use as <i>reward</i> in the contract.</p>
                     </span>">[?]</label>
 								</h3>
               </div>
               <div class="panel-body">
 
-                <p id="calc-output-cyno-row">Cyno fee <span class="pull-right"><span class="text-muted" id="calc-output-cyno-info"></span>&nbsp;&nbsp;<span id="calc-output-cyno-value" class="text-muted"></span></p>
-                <p id="calc-output-distance-row">Distance fee <span class="pull-right"><span class="text-muted" id="calc-output-distance-info"></span>&nbsp;&nbsp;<span id="calc-output-distance-value" class="text-muted"></span></p>
-                <p id="calc-output-modifier-row">Modifier <span class="pull-right"><span class="text-muted" id="calc-output-modifier-info"></span>&nbsp;&nbsp;<span id="calc-output-modifier-value" class="text-muted"></span></p>
+                <p id="calc-output-cyno-row">Cyno fee <span class="pull-right"><span class="text-muted" id="calc-output-cyno-info"></span>&nbsp;&nbsp;<span id="calc-output-cyno-value"></span></p>
+                <p id="calc-output-distance-row">Distance fee <span class="pull-right"><span class="text-muted" id="calc-output-distance-info"></span>&nbsp;&nbsp;<span id="calc-output-distance-value"></span></p>
+                <p id="calc-output-modifier-row">Modifier <span class="pull-right"><span class="text-muted" id="calc-output-modifier-info"></span>&nbsp;&nbsp;<span id="calc-output-modifier-value"></span></p>
                 <hr>
-                <p id="calc-output-freight-row">Freight fee <span class="pull-right"><span id="calc-output-freight-value" class="text-muted"></span></p>
+                <p id="calc-output-freight-row">Freight fee <span class="pull-right"><span id="calc-output-freight-value"></span></p>
                 <br>
-                <p id="calc-output-export-row">Export discount <span class="pull-right text-muted" id="calc-output-export-value"></span></p>
-                <p id="calc-output-nonhub-row">Non-hub penalty <span class="pull-right text-muted" id="calc-output-nonhub-value"></span></p>
+                <p id="calc-output-export-row">Export discount <span class="pull-right" id="calc-output-export-value"></span></p>
+                <p id="calc-output-nonhub-row">Non-hub penalty <span class="pull-right" id="calc-output-nonhub-value"></span></p>
                 <hr>
                 <p id="calc-output-reward-row">
 		    <b>Contract Reward</b>
