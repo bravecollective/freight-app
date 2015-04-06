@@ -37,7 +37,6 @@ hero_aid = []
 hero_aid.append('99003214') 	# Brave Collective
 hero_aid.append('99001904') 	# Spaceship Samurai
 hero_aid.append('99000739') 	# Of Sound Mind
-hero_aid.append('498125261') 	# Test
 hero_aid.append('99003393') 	# Bloodline.
 hero_aid.append('99003541')	# Nerfed Alliance Go Away
 
