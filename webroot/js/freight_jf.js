@@ -13,21 +13,21 @@ var jumpRange = 10; // JDC5 ly
 var exportDiscount = 1.0;
 
 var hubs = [
-	'V-3YG7 VI',
-	'GE-8JV VII',
-	'HED-GP III',
-	'QETZ-W I',
-	'Mendori IX-9 IAF',
-	'Rahadalon VIII-2 MABO',
-	'ZXIC-7 IV',
-	'E-YJ8G VIII',
-	'Leva IX-5 JHP',
-	'Sakht VI-7 GBP',
+//	'V-3YG7 VI',
+//	'GE-8JV VII',
+//	'HED-GP III',
+//	'QETZ-W I',
+//	'Mendori IX-9 IAF',
+//	'Rahadalon VIII-2 MABO',
+//	'ZXIC-7 IV',
+//	'E-YJ8G VIII',
+	'Defsunun IX-18 KCF',
+	'Zinkon VII-1 CBTA',
 ];
 hubs.sort();
 
 var exports = [
-	'Mendori IX-9 IAF'
+//	'Mendori IX-9 IAF'
 ];
 
 var evedata;

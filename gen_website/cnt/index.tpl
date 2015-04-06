@@ -7,21 +7,25 @@
     <p>
 	<b>Deployment Logistics</b><br>
 	<ul>
-	<li>Highsec: <span class="eve-system-06" onmouseover="popSys($(this), 30005039, 'Leva', '0.6', 'eve-system-06', 60007252, 'Leva IX-5 JHP');">Leva IX-5 JHP</span><br></li>
-	<li>Lowsec: <span class="eve-system-01" onmouseover="popSys($(this), 30004299, 'Sakht', '0.1', 'eve-system-01', 60013159, 'Sakht VI-7 GBP');">Sakht VI-7 GBP</span><br></li>
-	</ul>
+	<li>Highsec: <span class="eve-system-07" onmouseover="popSys($(this), 30005055, 'Zinkon', '0.7', 'eve-system-07', 60003478, 'Zinkon VII-1 CBTA');">Zinkon VII-1 CBTA</span></li>
+	<li>Lowsec: <span class="eve-system-01" onmouseover="popSys($(this), 30004284, 'Defsunun', '0.1', 'eve-system-01', 60001135, 'Defsunun IX-18 KCF');">Defsunun IX-18 KCF</span></li>
 
+
+	</ul>
+<!--
 	<b>Move assets out of Catch</b><br>
 	<ul>
 	    <li>Use <span class="eve-link" onmouseover="popCorp($(this), 98209548, 'Brave Little Toaster.');">Brave Little Toaster.</span> to move your assets to <span class="eve-system-05" onmouseover="popSys($(this), 30002986, 'Mendori', '0.5', 'eve-system-05', 60006511, 'Mendori IX-9');">Mendori IX-9</span></li>
 	    <li>Low volume Blockade Runner contracts to <span class="eve-system-09" onmouseover="popSys($(this), 30003862, 'Agil', '0.9', 'eve-system-09', 60012412, 'Agil VI-2');">Agil VI-2</span> can be setup as public contracts (max 10k m&sup3;; 2M ISK/jump)</li>
 	</ul>
-
+-->
 	<b>Move assets to deployment</b><br>
 	<ol>
+<!--	
 	    <li>Move assets to <span class="eve-system-05" onmouseover="popSys($(this), 30002986, 'Mendori', '0.5', 'eve-system-05', 60006511, 'Mendori IX-9');">Mendori IX-9</span> or <span class="eve-system-09" onmouseover="popSys($(this), 30003862, 'Agil', '0.9', 'eve-system-09', 60012412, 'Agil VI-2');">Agil VI-2</span> as described above</li>
-	    <li>Use the excellent service offered by <a href="http://red-frog.org/jumps.php">Red Frog Freight</a> or <a href="http://www.pushx.net/quote.php">PushX</a> to get your goods moved to <span class="eve-system-06" onmouseover="popSys($(this), 30005039, 'Leva', '0.6', 'eve-system-06', 60007252, 'Leva IX-5 JHP');">Leva IX-5 JHP</span></li>
-	    <li>Use <span class="eve-link" onmouseover="popCorp($(this), 98209548, 'Brave Little Toaster.');">Brave Little Toaster.</span> to move your assets to <span class="eve-system-01" onmouseover="popSys($(this), 30004299, 'Sakht', '0.1', 'eve-system-01', 60013159, 'Sakht VI-7 GBP');">Sakht VI-7 GBP</span></li>
+-->
+	    <li>Use the excellent service offered by <a href="http://red-frog.org/jumps.php">Red Frog Freight</a> or <a href="http://www.pushx.net/quote.php">PushX</a> to get your goods moved to <span class="eve-system-07" onmouseover="popSys($(this), 30005055, 'Zinkon', '0.7', 'eve-system-07', 60003478, 'Zinkon VII-1 CBTA');">Zinkon VII-1 CBTA</span></li>
+	    <li>Use <span class="eve-link" onmouseover="popCorp($(this), 98209548, 'Brave Little Toaster.');">Brave Little Toaster.</span> to move your assets to <span class="eve-system-01" onmouseover="popSys($(this), 30004284, 'Defsunun', '0.1', 'eve-system-01', 60001135, 'Defsunun IX-18 KCF');">Defsunun IX-18 KCF</span></li>
 	</ol>
 	
     </p>

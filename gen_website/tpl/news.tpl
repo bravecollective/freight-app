@@ -6,7 +6,9 @@
         	<h4>
 						<b><u>News</u></b>
 						<br>
-						<b>30.03.2014</b>	We are deploying! Leva and Sakht added.
+						<b>04.01.2015</b>	Maybe Zinkon and Defsunun are better.
+						<br>
+						<b>30.03.2015</b>	We are deploying! Leva and Sakht added.
 						<br>
 						<b>13.11.2014</b>	Modified Hubs: Removed GJ0, added ZXIC and E-Y.
 						<br>

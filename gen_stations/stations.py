@@ -24,20 +24,22 @@ add_station = []
 add_station.append('60006511') # Mendori IX - Moon 9 - Imperial Armaments Factory
 add_station.append('60008074') # Rahadalon VIII - Moon 2 - Ministry of Assessment Bureau Offices
 add_station.append('60012301') # Sendaya V - CONCORD Bureau
-add_station.append('60007252') # Leva IX - Moon 5 - Joint Harvesting Plantation
-add_station.append('60013159') # Sakht VI - Moon 7 - Genolution Biotech Production
-add_station.append('60013831') # Nahrneder VI - Moon 15 - Khanid Transport Storage FAKE STATION REQUIRED FOR CALC
+
+add_station.append('60003478') # Zinkon VII - Moon 1 - Caldari Business Tribunal Accounting
+add_station.append('60001135') # Defsunun IX - Moon 18 - Kaalakiota Corporation Factory
+
+#add_station.append('60007252') # Leva IX - Moon 5 - Joint Harvesting Plantation
+#add_station.append('60013159') # Sakht VI - Moon 7 - Genolution Biotech Production
+#add_station.append('60013831') # Nahrneder VI - Moon 15 - Khanid Transport Storage FAKE STATION REQUIRED FOR CALC
 
 remove_station = []
 remove_station.append('61000682'); # EX6-AO VII - The Neocortex
 remove_station.append('61000744'); # 4-07MU V - The Thalamus
-remove_station.append('61000193'); # RNF-YH XI
+#remove_station.append('61000193'); # RNF-YH XI
 
 hero_aid = []
 hero_aid.append('99003214') 	# Brave Collective
-hero_aid.append('99001904') 	# Spaceship Samurai
 hero_aid.append('99000739') 	# Of Sound Mind
-hero_aid.append('498125261') 	# Test
 hero_aid.append('99003393') 	# Bloodline.
 hero_aid.append('99003541')	# Nerfed Alliance Go Away
 

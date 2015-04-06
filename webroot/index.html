@@ -66,11 +66,14 @@
         <button type="button" class="btn btn-danger" onclick="CCPEVE.requestTrust('http://freight.braveineve.com/*');">Trust this site</button>        
       </div>
 
+<!--
       <div class="alert alert-danger fade in">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <b>WE ARE DEPLOYING \o/</b><br>
 	<b>Read more about freighting options in regards to the deployment on the <a href="index.html">main</a> page.</b>
       </div>
+-->
+
 <!-- Alerts -->
 
 <!-- Lead -->
@@ -80,36 +83,6 @@
 				<h4 class="text-danger">Do not contract <strong>assembled</strong> containers or ships!</h4>
       </div>   
 <!-- Lead -->
-<!-- Alerts -->
-      <div class="container">
-      	<div class="alert alert-success hide fade" id="alert-news">
-					<input type="hidden" id="alert-news-expire" value="1427681185"/>
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true" onclick="$.cookie('bf-alert-news', $('#alert-news-expire').val(), {expires: 3650});">&times;</button>
-        	<h4>
-						<b><u>News</u></b>
-						<br>
-						<b>30.03.2014</b>	We are deploying! Leva and Sakht added.
-						<br>
-						<b>13.11.2014</b>	Modified Hubs: Removed GJ0, added ZXIC and E-Y.
-						<br>
-						<b>03.11.2014</b>	Phoebe changes: Travel distance reduced to 10ly (JDC V).
-						<br>
-						<b>09.10.2014</b>	Added incursion detection. Removed highsec support.
-						<br>
-						<b>27.08.2014</b>	Sendaya is no longer a hub (but still a regular station) and support for Blockade Runners is removed.
-						<br>
-						<b>27.07.2014</b>	Adapted <a href="jf.html">flexible rates</a> due to changes introduced by Crius. Removed cyno jammed systems.
-						<br>
-						<b>27.06.2014</b>	Checkout the new <a href="stats.html">stats</a> page.
-						<br>
-						<b>24.05.2014</b>	Rate calculation for Jump Freighters revamped to support null sec operation.
-						<br>
-						<b>18.05.2014</b>	All courier contracts need to be assigned to the <b><a href="#" class="eve-link" onmouseover="popCorp($(this), 98209548, 'Brave Little Toaster.');">Brave Little Toaster.</a></b> corporation. See <a href="faq.html">FAQ</a> for a step-by-step guide.
-					</h4>
-      	</div>
-      </div>
-<!-- Alerts -->
-
 <!-- Ad -->
 
 <div class="container">
@@ -119,21 +92,25 @@
     <p>
 	<b>Deployment Logistics</b><br>
 	<ul>
-	<li>Highsec: <span class="eve-system-06" onmouseover="popSys($(this), 30005039, 'Leva', '0.6', 'eve-system-06', 60007252, 'Leva IX-5 JHP');">Leva IX-5 JHP</span><br></li>
-	<li>Lowsec: <span class="eve-system-01" onmouseover="popSys($(this), 30004299, 'Sakht', '0.1', 'eve-system-01', 60013159, 'Sakht VI-7 GBP');">Sakht VI-7 GBP</span><br></li>
-	</ul>
+	<li>Highsec: <span class="eve-system-07" onmouseover="popSys($(this), 30005055, 'Zinkon', '0.7', 'eve-system-07', 60003478, 'Zinkon VII-1 CBTA');">Zinkon VII-1 CBTA</span></li>
+	<li>Lowsec: <span class="eve-system-01" onmouseover="popSys($(this), 30004284, 'Defsunun', '0.1', 'eve-system-01', 60001135, 'Defsunun IX-18 KCF');">Defsunun IX-18 KCF</span></li>
 
+
+	</ul>
+<!--
 	<b>Move assets out of Catch</b><br>
 	<ul>
 	    <li>Use <span class="eve-link" onmouseover="popCorp($(this), 98209548, 'Brave Little Toaster.');">Brave Little Toaster.</span> to move your assets to <span class="eve-system-05" onmouseover="popSys($(this), 30002986, 'Mendori', '0.5', 'eve-system-05', 60006511, 'Mendori IX-9');">Mendori IX-9</span></li>
 	    <li>Low volume Blockade Runner contracts to <span class="eve-system-09" onmouseover="popSys($(this), 30003862, 'Agil', '0.9', 'eve-system-09', 60012412, 'Agil VI-2');">Agil VI-2</span> can be setup as public contracts (max 10k m&sup3;; 2M ISK/jump)</li>
 	</ul>
-
+-->
 	<b>Move assets to deployment</b><br>
 	<ol>
+<!--	
 	    <li>Move assets to <span class="eve-system-05" onmouseover="popSys($(this), 30002986, 'Mendori', '0.5', 'eve-system-05', 60006511, 'Mendori IX-9');">Mendori IX-9</span> or <span class="eve-system-09" onmouseover="popSys($(this), 30003862, 'Agil', '0.9', 'eve-system-09', 60012412, 'Agil VI-2');">Agil VI-2</span> as described above</li>
-	    <li>Use the excellent service offered by <a href="http://red-frog.org/jumps.php">Red Frog Freight</a> or <a href="http://www.pushx.net/quote.php">PushX</a> to get your goods moved to <span class="eve-system-06" onmouseover="popSys($(this), 30005039, 'Leva', '0.6', 'eve-system-06', 60007252, 'Leva IX-5 JHP');">Leva IX-5 JHP</span></li>
-	    <li>Use <span class="eve-link" onmouseover="popCorp($(this), 98209548, 'Brave Little Toaster.');">Brave Little Toaster.</span> to move your assets to <span class="eve-system-01" onmouseover="popSys($(this), 30004299, 'Sakht', '0.1', 'eve-system-01', 60013159, 'Sakht VI-7 GBP');">Sakht VI-7 GBP</span></li>
+-->
+	    <li>Use the excellent service offered by <a href="http://red-frog.org/jumps.php">Red Frog Freight</a> or <a href="http://www.pushx.net/quote.php">PushX</a> to get your goods moved to <span class="eve-system-07" onmouseover="popSys($(this), 30005055, 'Zinkon', '0.7', 'eve-system-07', 60003478, 'Zinkon VII-1 CBTA');">Zinkon VII-1 CBTA</span></li>
+	    <li>Use <span class="eve-link" onmouseover="popCorp($(this), 98209548, 'Brave Little Toaster.');">Brave Little Toaster.</span> to move your assets to <span class="eve-system-01" onmouseover="popSys($(this), 30004284, 'Defsunun', '0.1', 'eve-system-01', 60001135, 'Defsunun IX-18 KCF');">Defsunun IX-18 KCF</span></li>
 	</ol>
 	
     </p>

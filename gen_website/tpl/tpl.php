@@ -9,8 +9,8 @@ function tpl_lead($headline, $teaser) {
 }
 
 function tpl_news() {
-		$expire = filemtime("./tpl/news.tpl");
-    require("news.tpl");
+    $expire = filemtime("./tpl/news.tpl");
+    //require("news.tpl");
 }
 
 function tpl_footer($scripts) {
