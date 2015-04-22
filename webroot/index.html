@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">     
 
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="BRAVE Freight">
-    <meta name="author" content="kiu Nakamura">
-    <link rel="shortcut icon" href="favicon.png">
-    <title>BRAVE Freight</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/starter-template.css" rel="stylesheet">
+  <head>         
+    <meta charset="utf-8">         
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">         
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">         
+    <meta name="description" content="BRAVE Freight">         
+    <meta name="author" content="kiu Nakamura">         
+    <link rel="shortcut icon" href="favicon.png">         
+    <title>BRAVE Freight</title>         
+    <link href="css/bootstrap.min.css" rel="stylesheet">         
+    <link href="css/starter-template.css" rel="stylesheet">         
     <link href="css/freight.css" rel="stylesheet">
 
-  </head>
+  </head>     
 
   <body>
 
@@ -41,7 +41,7 @@
               <ul class="dropdown-menu pull-right">
                 <li class="dropdown-header">Helper functions</li>
                 <li><a href="#" onclick="toggleNumberformat();">Toggle Numberformat</a></li>
-                <li><a href="#" onclick="clearCookies();location.reload();">Clear all cookies</a></li>
+                <li><a href="#" onclick="clearCookies();location.reload();">Clear all cookies</a></li>                
               </ul>
             </li>
           </ul>
@@ -49,7 +49,7 @@
       </div>
     </div>
 <!-- Navigation -->
-
+  
 <!-- Alerts -->
       <div class="alert alert-info hide fade" id="alert-use-igb">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true" onclick="$.cookie('bf-alert-igb', '1', {expires: 3650});">&times;</button>
@@ -57,13 +57,13 @@
       </div>
 
       <div class="alert alert-info hide fade" id="alert-not-trusted">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true" onclick="$.cookie('bf-alert-not-trusted', '1', {expires: 3650})">&times;</button>
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true" onclick="$.cookie('bf-alert-not-trusted', '1', {expires: 3650})">&times;</button>        
         <p>
-          Tip: <strong>Trusting this site</strong> enables additional convenience features<br>
+          Tip: <strong>Trusting this site</strong> enables additional convenience features<br>        
           <small>Please reload this page once after granting trust</small>
         </p>
         <br>
-        <button type="button" class="btn btn-danger" onclick="CCPEVE.requestTrust('http://freight.braveineve.com/*');">Trust this site</button>
+        <button type="button" class="btn btn-danger" onclick="CCPEVE.requestTrust('http://freight.braveineve.com/*');">Trust this site</button>        
       </div>
 
 <!--
@@ -81,7 +81,7 @@
         <h1>Moving Stuff for Fun and Profit</h1>
         <p></p>
 				<h4 class="text-danger">Do not contract <strong>assembled</strong> containers or ships!</h4>
-      </div>
+      </div>   
 <!-- Lead -->
 <!-- Ad -->
 
@@ -90,10 +90,10 @@
     <h4><span class="eve-link" onmouseover="popCorp($(this), 98209548, 'Brave Little Toaster.');">Brave Little Toaster.</span> offers <a href="http://evewho.com/alli/Brave+Collective">BRAVE</a> members a reliable and affordable service for moving goods within the <a href="https://wiki.braveineve.com/public/hero">HERO</a> empire.<br></h4>
     <br>
     <p>
-       <b>Move Logistics</b><br>
-       <ul>
-       <li>Highsec: <span class="eve-system-07" onmouseover="popSys($(this), 30005055, 'Zinkon', '0.7', 'eve-system-07', 60003478, 'Zinkon VII-1 CBTA');">Zinkon VII-1 CBTA</span></li>
-       <li>Nullsec: <span class="eve-system-00" onmouseover="popSys($(this), 30004617, 'YZ-LQL', '0.1', 'eve-system-00', 60012913, 'YZ-LQL VII-1 GAAP');">YZ-LQL VII-1 GAAP</span></li>
+        <b>Move Logistics</b><br>
+        <ul>
+        <li>Highsec: <span class="eve-system-07" onmouseover="popSys($(this), 30005055, 'Zinkon', '0.7', 'eve-system-07', 60003478, 'Zinkon VII-1 CBTA');">Zinkon VII-1 CBTA</span></li>
+        <li>Nullsec: <span class="eve-system-00" onmouseover="popSys($(this), 30004617, 'YZ-LQL', '0.1', 'eve-system-00', 60012913, 'YZ-LQL VII-1 GAAP');">YZ-LQL VII-1 GAAP</span></li>
 
 
 
@@ -147,8 +147,8 @@
 <!-- Footer -->
 		<p></p>
     <div id="footer">
-      <div class="container">
-        <p class="small text-muted pull-right text-right">
+      <div class="container">        
+        <p class="small text-muted pull-right text-right">        
           Brought to you by <a href="#" class="eve-link" onmouseover="popChar($(this), 92938653, 'kiu Nakamura');">kiu Nakamura</a>
         </p>
       </div>
@@ -181,7 +181,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr>      
               <td style='padding-left:5px; padding-right:5px; padding-top:3px; vertical-align:top;' id="popsys-content-1">&nbsp;</td>
               <td style='padding-left:5px; padding-right:5px; padding-top:3px; vertical-align:top;' id="popsys-content-2">&nbsp;</td>
             </tr>
@@ -216,14 +216,14 @@
               <h4 class="modal-title" id="clipboardLabel">Copy to clipboard: CTRL-C, Enter</h4>
             </div>
             <div class="modal-body">
-              <input type="text" class="form-control text-right" id="clipboard-content">
+              <input type="text" class="form-control text-right" id="clipboard-content">      
             </div>
           </div>
         </div>
       </div>
 <!-- Clipboard -->
 
-	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/jquery-1.10.2.min.js"></script> 
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.cookie.js"></script>
 	<script src="js/freight.js"></script>

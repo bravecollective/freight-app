@@ -30,6 +30,7 @@ add_station.append('60001135') # Defsunun IX - Moon 18 - Kaalakiota Corporation 
 
 add_station.append('60012394') # Avada V - CONCORD Assembly Plant
 add_station.append('60012913') # YZ-LQL VII - Moon 1 - Guardian Angels Assembly Plant
+add_station.append('60010264') # Bapraya IV - Moon 1 - CreoDron Factory FAKE STATION REQUIRED FOR CALC
 
 #add_station.append('60007252') # Leva IX - Moon 5 - Joint Harvesting Plantation
 #add_station.append('60013159') # Sakht VI - Moon 7 - Genolution Biotech Production
@@ -44,7 +45,7 @@ hero_aid = []
 hero_aid.append('99003214') 	# Brave Collective
 hero_aid.append('99000739') 	# Of Sound Mind
 hero_aid.append('99003393') 	# Bloodline.
-hero_aid.append('99003541')		# Nerfed Alliance Go Away
+hero_aid.append('99003541')	# Nerfed Alliance Go Away
 
 # ---------------------------------------------
 
