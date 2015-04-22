@@ -12,7 +12,7 @@ import urllib2
 
 online = True
 
-db = MySQLdb.connect(host="localhost", user="freighthandle", passwd="freighthandle", db="evedump")
+db = MySQLdb.connect(host="localhost", user="root", passwd="root", db="toolkit_ruby")
 cur = db.cursor()
 
 # ---------------------------------------------
