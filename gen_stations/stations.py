@@ -12,7 +12,7 @@ import urllib2
 
 online = True
 
-db = MySQLdb.connect(host="localhost", user="root", passwd="root", db="toolkit_ruby")
+db = MySQLdb.connect(host="localhost", user="freighthandle", passwd="freighthandle", db="evedump")
 cur = db.cursor()
 
 # ---------------------------------------------
@@ -28,6 +28,9 @@ add_station.append('60012301') # Sendaya V - CONCORD Bureau
 add_station.append('60003478') # Zinkon VII - Moon 1 - Caldari Business Tribunal Accounting
 add_station.append('60001135') # Defsunun IX - Moon 18 - Kaalakiota Corporation Factory
 
+add_station.append('60012394') # Avada V - CONCORD Assembly Plant
+add_station.append('60012913') # YZ-LQL VII - Moon 1 - Guardian Angels Assembly Plant
+
 #add_station.append('60007252') # Leva IX - Moon 5 - Joint Harvesting Plantation
 #add_station.append('60013159') # Sakht VI - Moon 7 - Genolution Biotech Production
 #add_station.append('60013831') # Nahrneder VI - Moon 15 - Khanid Transport Storage FAKE STATION REQUIRED FOR CALC
@@ -41,7 +44,7 @@ hero_aid = []
 hero_aid.append('99003214') 	# Brave Collective
 hero_aid.append('99000739') 	# Of Sound Mind
 hero_aid.append('99003393') 	# Bloodline.
-hero_aid.append('99003541')	# Nerfed Alliance Go Away
+hero_aid.append('99003541')		# Nerfed Alliance Go Away
 
 # ---------------------------------------------
 
@@ -55,9 +58,9 @@ cur.execute("SELECT regionID, regionName FROM mapRegions;")
 for row in cur.fetchall() :
 	regionlookup.append({'rid':str(row[0]), 'rname':str(row[1])})
 
-def findRegion(rid): 
+def findRegion(rid):
 	for r in regionlookup:
-		if (r['rid'] == rid):	
+		if (r['rid'] == rid):
 			return r
 	return False
 
@@ -77,9 +80,9 @@ for row in rows:
 	aname = row.xpath("@shortName")[0]
 	alliancelookup.append({'aid':aid, 'aname':aname})
 
-def findAlliance(aid): 
+def findAlliance(aid):
 	for s in alliancelookup:
-		if (s['aid'] == aid):	
+		if (s['aid'] == aid):
 			return s
 	return False
 
@@ -98,9 +101,9 @@ for row in rows:
 	aid = row.xpath("@allianceID")[0]
 	sovlookup.append({'ssid':ssid, 'aid':aid})
 
-def findSov(ssid): 
+def findSov(ssid):
 	for s in sovlookup:
-		if (s['ssid'] == ssid):	
+		if (s['ssid'] == ssid):
 			return s
 	return False
 
@@ -149,7 +152,7 @@ for row in rows:
 
 	sectype = 'unknown'
 	if (aid == '0'):
-		sectype = 'null_npc'		
+		sectype = 'null_npc'
 	if aid in hero_aid:
 		sectype ='null_hero'
 	else:
@@ -185,7 +188,7 @@ for res in cur.fetchall() :
 	aid = ''
 	aname = ''
 	if (security >= 0.5):
-		sectype = 'high'		
+		sectype = 'high'
 	if (security > 0 and security < 0.5):
 		sectype = 'low'
 	if (security <= 0):
