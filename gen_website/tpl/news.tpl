@@ -5,6 +5,8 @@
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true" onclick="$.cookie('bf-alert-news', $('#alert-news-expire').val(), {expires: 3650});">&times;</button>
         	<h4>
 						<b><u>News</u></b>
+                                                <br>
+                                                <b>04.22.2015</b>	Added Avada and YZ-LQL.
 						<br>
 						<b>04.01.2015</b>	Maybe Zinkon and Defsunun are better.
 						<br>
@@ -29,4 +31,3 @@
       	</div>
       </div>
 <!-- Alerts -->
-

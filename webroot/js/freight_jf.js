@@ -23,6 +23,8 @@ var hubs = [
 //	'E-YJ8G VIII',
 	'Defsunun IX-18 KCF',
 	'Zinkon VII-1 CBTA',
+	'YZ-LQL VII-1 GAAP',
+	'Avada V CAP',
 ];
 hubs.sort();
 
@@ -81,7 +83,7 @@ function popStations(obj, list, dest) {
 		cnt += '<tr><td style="padding-left: 8px; padding-right: 8px;" class="text-info" onclick="$(\'#' + dest + '\').val(\'' + list[s] +'\').change();">' + list[s] + '</td></tr>\n';
 	}
 
-  $('#popstations-content').html(cnt); 
+  $('#popstations-content').html(cnt);
 	popShow(obj, '#popstations');
 }
 
@@ -137,7 +139,7 @@ function findStation(name) {
 	}
 
 	var	needle = name.toUpperCase();
-	
+
 	for (var stn in evedata) {
 		if (evedata[stn]['sname'].toUpperCase() == needle) {
 			return evedata[stn];
@@ -228,12 +230,12 @@ function calcInputGetValue(name, max, format) {
 
   idx = value.indexOf(fsep);
   if (idx != -1) {
-    value = value.split(fsep).join('');  
+    value = value.split(fsep).join('');
 //    $('#calc-input-' + name + '-value').val(value);
   }
-  idx = value.indexOf(fdec);  
+  idx = value.indexOf(fdec);
   if (idx != -1) {
-    value = value.substr(0, idx);    
+    value = value.substr(0, idx);
     $('#calc-input-' + name + '-value').val(value);
   }
 
@@ -276,14 +278,14 @@ function calcRoute(stationFrom, stationTo) {
 	var route = [stationFrom];
 	var distance = calcDistance(stationFrom, stationTo);
 	var resultDistance = 0;
- 
+
 	if (!(stationFrom && stationTo)) {
 		return; //check if set
  	}
 
 	while (distance != 0) {
 		route.push(null);
-		evedata.forEach(function (station) {	
+		evedata.forEach(function (station) {
 			if (calcDistance(station, route[route.length-2]) <= jumpRange) { // system is in jump range
 				if (distance > (newdistance = calcDistance(station, stationTo))) { // system is closer than current midpoint
 					if (station.sectype != 'null_other') {
@@ -293,7 +295,7 @@ function calcRoute(stationFrom, stationTo) {
 				}
 			}
 		});
- 
+
 		if (route[route.length-1] == null) {
 			return false; // unreachable
 		}
@@ -382,7 +384,7 @@ function calcNow() {
 	    modifier = modifierHub;
 	}
 	modifier = Math.ceil(modifier * 100);
-	
+
 	// -----------------
 	var modifierExport = $.inArray(stationTo.sname, exports) != -1 && $.inArray(stationFrom.sname, hubs) != -1 ? exportDiscount : 1;
 	// -----------------
@@ -429,4 +431,3 @@ function calcNow() {
 $('.popover-reward').popover();
 
 // ---------------------------------------------------------------
-
